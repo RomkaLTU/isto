@@ -1,0 +1,1 @@
+(self.webpackChunk=self.webpackChunk||[]).push([[742],{904:function(n,u,o){o(609)(document).ready((function(){console.log("Hello world")}))},199:function(){},609:function(n){"use strict";n.exports=window.jQuery}},function(n){"use strict";var u=function(u){return n(n.s=u)};n.O(0,[692],(function(){return u(904),u(199)}));n.O()}]);
