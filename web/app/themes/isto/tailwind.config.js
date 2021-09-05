@@ -21,10 +21,13 @@ module.exports = {
         '16px': '1rem',
         '18px': '1.125rem',
         '22px': '1.375rem',
+        '35px': '2.187rem',
         '50px': '3.125rem',
       },
       spacing: {
         '10px': '10px',
+        '50px': '50px',
+        '70px': '70px',
       },
     },
   },
