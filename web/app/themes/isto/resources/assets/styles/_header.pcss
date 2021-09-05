@@ -1,0 +1,40 @@
+.header {
+    .nav-primary {
+        @apply flex items-center space-x-5 uppercase text-14px;
+
+        .menu-item {
+            a {
+                position: relative;
+            }
+
+            a:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                height: 1px;
+                width: 0;
+                background-color: #000000;
+                transition: 0.2s width;
+            }
+
+            a:hover:before {
+                width: 100%;
+            }
+        }
+
+        .menu-item.current-menu-item {
+            a:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                height: 1px;
+                width: 100%;
+                background-color: #000000;
+            }
+        }
+    }
+}

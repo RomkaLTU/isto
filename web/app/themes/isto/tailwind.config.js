@@ -16,11 +16,15 @@ module.exports = {
         },
       },
       fontSize: {
+        '13px': '0.812rem',
         '14px': '0.875rem',
         '16px': '1rem',
         '18px': '1.125rem',
         '22px': '1.375rem',
         '50px': '3.125rem',
+      },
+      spacing: {
+        '10px': '10px',
       },
     },
   },

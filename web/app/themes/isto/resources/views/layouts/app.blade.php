@@ -1,9 +1,7 @@
 @include('partials.header')
 
 <div class="container">
-  <main class="main">
-    @yield('content')
-  </main>
+  @yield('content')
 
   @hasSection('sidebar')
     <aside class="sidebar">

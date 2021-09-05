@@ -1,0 +1,25 @@
+body {
+    @apply text-black font-body bg-gray-1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @apply font-headings font-bold uppercase;
+}
+
+[x-cloak] { display: none !important; }
+
+.container {
+    width: 100%;
+    max-width: 1138px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @screen 2xl {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
