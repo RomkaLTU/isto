@@ -19,9 +19,9 @@ $imageId = get_field('image');
 
 <div class="block-banner-1">
     @if(empty($link))
-        <div class="container bg-white p-70px">
+        <div class="container bg-white p-70px with-arrow">
     @else
-        <a href="{{ $link }}" class="container bg-white block p-50px lg:p-70px">
+        <a href="{{ $link }}" class="container bg-white block p-50px lg:p-70px with-arrow">
     @endif
         <div class="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between">
             <div class="flex-1 max-w-[600px] mt-4 lg:mt-0">
@@ -32,7 +32,7 @@ $imageId = get_field('image');
                     <div class="text-14px">{{ $subtitle }}</div>
                 @endif
                 @if(!empty($link))
-                    <img src="@asset('images/arrow-right-1.svg')" class="-ml-1" alt="">
+                    <img src="@asset('images/arrow-right-1.svg')" class="arrow-right -ml-1" alt="">
                 @endif
             </div>
             <div class="flex-none max-w-[185px]">

@@ -23,3 +23,15 @@ h4 {
         padding-right: 0;
     }
 }
+
+.with-arrow {
+    .arrow-right {
+        @apply transition-transform duration-500 transform translate-x-0;
+    }
+}
+
+.with-arrow:hover {
+    .arrow-right {
+        @apply translate-x-2;
+    }
+}
