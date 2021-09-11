@@ -11,13 +11,18 @@
 --}}
 
 @php
+$global = get_field('global');
 $manufaturers = get_field('manufacturers');
-$verticalSpace = get_field('vertical_space') ?? true ? 'my-70px' : '';
+$verticalSpace = $global['vertical_space'] ?? true ? 'my-70px' : '';
+$title = $global['title'];
+
+// dd($global);
 @endphp
 
 <div class="block-manufacturers-slider {{ $verticalSpace }}">
     <div class="container">
-        <h2 class="text-35px lg:pl-30px mb-3">{{ __('Gamintojai', 'isto') }}</h2>
+        @include('blocks.partials.title')
+
         <div class="swiper swiper-container-manufacturers overflow-hidden relative h-[544px]">
             <div class="swiper-wrapper">
                 @foreach ($manufaturers as $manufacturer)

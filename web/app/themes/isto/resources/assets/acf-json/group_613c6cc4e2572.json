@@ -1,9 +1,9 @@
 {
-    "key": "group_613708824dd6b",
-    "title": "Block Manufacturers Slider",
+    "key": "group_613c6cc4e2572",
+    "title": "Block inspiration",
     "fields": [
         {
-            "key": "field_613c7ce87f5f0",
+            "key": "field_613c7bbddb63e",
             "label": "Global",
             "name": "global",
             "type": "clone",
@@ -25,9 +25,33 @@
             "prefix_name": 0
         },
         {
-            "key": "field_61370894f6d6b",
-            "label": "Manufacturers",
-            "name": "manufacturers",
+            "key": "field_613c6d1622dbe",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_613c6cd522dbd",
+            "label": "Object",
+            "name": "object",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -38,7 +62,9 @@
                 "id": ""
             },
             "post_type": [
-                "manufacturers"
+                "page",
+                "post",
+                "product"
             ],
             "taxonomy": "",
             "filters": [
@@ -50,7 +76,7 @@
                 "featured_image"
             ],
             "min": 1,
-            "max": 6,
+            "max": 1,
             "return_format": "object"
         }
     ],
@@ -59,7 +85,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/manufacturers-slider-block"
+                "value": "acf\/inspiration-block"
             }
         ]
     ],
@@ -71,5 +97,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631354617
+    "modified": 1631354396
 }
