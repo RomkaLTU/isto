@@ -15,13 +15,14 @@ $link = get_field('link');
 $title = get_field('title');
 $subtitle = get_field('subtitle');
 $imageId = get_field('image');
+$verticalSpace = get_field('vertical_space') ?? true ? 'my-70px' : '';
 @endphp
 
-<div class="block-banner-1">
+<div class="block-banner-1 container {{ $verticalSpace }}">
     @if(empty($link))
-        <div class="container bg-white p-70px with-arrow">
+        <div class=" bg-white p-70px with-arrow">
     @else
-        <a href="{{ $link }}" class="container bg-white block p-50px lg:p-70px with-arrow">
+        <a href="{{ $link }}" class="bg-white block p-50px lg:p-70px with-arrow">
     @endif
         <div class="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between">
             <div class="flex-1 max-w-[600px] mt-4 lg:mt-0">

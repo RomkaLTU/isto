@@ -6,4 +6,25 @@ SwiperCore.use([Navigation, Pagination]);
 
 window.Alpine = Alpine;
 
+// ------------------------
+// Manufacturers slider
+// ------------------------
+
+new SwiperCore('.swiper-container-manufacturers', {
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 1,
+    spaceBetween: 8,
+    breakpoints: {
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+    }
+});
+
+// end Manufacturers slider
+
 Alpine.start();

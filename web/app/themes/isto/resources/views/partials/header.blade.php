@@ -1,6 +1,6 @@
 <header class="header mb-8 lg:mb-0" x-data="{showMobileMenu: false}">
   <div class="container py-6">
-    <div class="flex items-center justify-between fixed top-0 left-0 w-full bg-white lg:bg-transparent px-4 lg:px-0 py-2 lg:py-0 lg:static">
+    <div class="flex items-center justify-between fixed z-50 top-0 left-0 w-full bg-white lg:bg-transparent px-4 lg:px-0 py-2 lg:py-0 lg:static">
       <a class="brand" href="{{ home_url('/') }}">
         <img src="@asset('images/logo.svg')" alt="">
       </a>
