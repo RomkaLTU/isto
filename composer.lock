@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "794cceff8683ce2e6a5d37fddabccf43",
+    "content-hash": "efd820f2db5a413c70b85fbfa7768102",
     "packages": [
         {
             "name": "composer/installers",
@@ -975,6 +975,24 @@
             "time": "2021-01-20T15:23:13+00:00"
         },
         {
+            "name": "wpackagist-plugin/custom-post-type-ui",
+            "version": "1.9.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/custom-post-type-ui/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/custom-post-type-ui.zip?timestamp=1623897602"
+            },
+            "require": {
+                "composer/installers": "~1.0 || ~2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/custom-post-type-ui/"
+        },
+        {
             "name": "wpackagist-plugin/disable-comments",
             "version": "2.1.2",
             "source": {
@@ -991,6 +1009,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/disable-comments/"
+        },
+        {
+            "name": "wpackagist-plugin/simple-custom-post-order",
+            "version": "2.5.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/simple-custom-post-order/",
+                "reference": "tags/2.5.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/simple-custom-post-order.2.5.6.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0 || ~2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/simple-custom-post-order/"
         },
         {
             "name": "wpackagist-plugin/svg-support",
