@@ -41,11 +41,7 @@ $title = $global['title'];
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-        <div class="lg:pl-30px">
-            <a href="#" class="with-arrow text-14px flex items-center space-x-1 mt-2">
-                <span>{{ __('Visi gamintojai', 'isto') }}</span>
-                <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
-            </a>
-        </div>
+
+        @include('blocks.partials.more-link', ['title' => __('Visi gamintojai', 'isto'), 'link' => '#'])
     </div>
 </div>

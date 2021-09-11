@@ -49,12 +49,7 @@ $excerpt = \Illuminate\Support\Str::words($contentClean, 40, '...');
               </div>
             </div>
         </div>
-        <div class="lg:pl-30px">
-            <a href="#" class="with-arrow text-14px flex items-center space-x-1 mt-2">
-                <span>{{ __('Daugiau įkvėpimo', 'isto') }}</span>
-                <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
-            </a>
-        </div>
 
+        @include('blocks.partials.more-link', ['title' => __('Daugiau įkvėpimo', 'isto'), 'link' => '#'])
     </div>
 </div>
