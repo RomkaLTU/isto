@@ -25,6 +25,7 @@ module.exports = {
         '50px': '3.125rem',
       },
       spacing: {
+        '1px': '1px',
         '10px': '10px',
         '30px': '30px',
         '40px': '40px',
