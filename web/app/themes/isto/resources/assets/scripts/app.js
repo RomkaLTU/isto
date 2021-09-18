@@ -1,5 +1,6 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 import Alpine from 'alpinejs';
+const ScrollMagic = require('scrollmagic');
 import anime from 'animejs/lib/anime.es.js';
 import 'swiper/swiper-bundle.css';
 
@@ -86,5 +87,33 @@ new SwiperCore('.swiper-container-hero', {
 });
 
 // end Hero slider
+
+const controller = new ScrollMagic.Controller();
+
+document.querySelectorAll('.scrollmagic').forEach(function(el) {
+    const lineDown = document.querySelector('.anime-line-down');
+    const fadeFromLeft = document.querySelector('.anime-fade-from-left');
+    const fadeIn = document.querySelector('.anime-fade-in');
+
+    new ScrollMagic.Scene({ triggerElement: el })
+        .addTo(controller)
+        .on("enter", function () {
+            const tl = anime.timeline({
+                easing: 'easeOutSine',
+            });
+
+            tl.add({
+                targets: lineDown,
+                height: '150%',
+            }).add({
+                targets: fadeFromLeft,
+                opacity: 1,
+                translateX: ['-100%', '0'],
+            }).add({
+                targets: fadeIn,
+                opacity: 1,
+            });
+        });
+});
 
 Alpine.start();
