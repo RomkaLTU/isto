@@ -88,20 +88,19 @@ new SwiperCore('.swiper-container-hero', {
 
 // end Hero slider
 
-const controller = new ScrollMagic.Controller();
-
 document.querySelectorAll('.scrollmagic').forEach(function(el) {
-    const lineDown = document.querySelector('.anime-line-down');
-    const fadeFromLeft = document.querySelector('.anime-fade-from-left');
-    const fadeIn = document.querySelector('.anime-fade-in');
+    const controller = new ScrollMagic.Controller();
+    const tl = anime.timeline({
+        easing: 'easeOutSine',
+    });
 
-    new ScrollMagic.Scene({ triggerElement: el, reverse: false })
+    const lineDown = el.querySelector('.anime-line-down');
+    const fadeFromLeft = el.querySelector('.anime-fade-from-left');
+    const fadeIn = el.querySelector('.anime-fade-in');
+
+    new ScrollMagic.Scene({ triggerElement: el, reverse: false, triggerHook: 100 })
         .addTo(controller)
         .on("enter", function () {
-            const tl = anime.timeline({
-                easing: 'easeOutSine',
-            });
-
             tl.add({
                 targets: lineDown,
                 height: '150%',

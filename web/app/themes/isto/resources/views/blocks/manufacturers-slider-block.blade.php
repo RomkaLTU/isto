@@ -13,7 +13,7 @@
 @php
 $global = get_field('global');
 $manufaturers = get_field('manufacturers');
-$verticalSpace = $global['vertical_space'] ?? true ? 'my-70px' : '';
+$verticalSpace = $global['vertical_space'] ?? true ? 'my-80px' : '';
 $title = $global['title'];
 
 // dd($global);

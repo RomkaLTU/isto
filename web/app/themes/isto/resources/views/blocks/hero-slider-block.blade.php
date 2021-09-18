@@ -11,7 +11,7 @@
 --}}
 
 @php
-    $verticalSpace = get_field('vertical_space') ?? true ? 'my-70px' : '';
+    $verticalSpace = get_field('vertical_space') ?? true ? 'my-80px' : '';
     $slides = get_field('slides');
 @endphp
 

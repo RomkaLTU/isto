@@ -11,7 +11,7 @@
 --}}
 
 @php
-    $verticalSpace = get_field('vertical_space') ?? true ? 'my-70px' : '';
+    $verticalSpace = get_field('vertical_space') ?? true ? 'my-80px' : '';
     $title = get_field('title');
 	$text = get_field('text');
 	$imageId = get_field('image');

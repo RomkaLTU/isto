@@ -11,7 +11,7 @@
 --}}
 
 @php
-    $verticalSpace = get_field('vertical_space') ?? true ? 'my-70px' : '';
+    $verticalSpace = get_field('vertical_space') ?? true ? 'my-80px' : '';
     $title = get_field('global')['title'];
 	$items = get_field('history');
 	$firstItems = array_slice($items, 0, 2);

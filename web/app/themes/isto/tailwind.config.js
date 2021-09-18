@@ -33,6 +33,7 @@ module.exports = {
         '50px': '50px',
         '70px': '70px',
         '75px': '75px',
+        '80px': '80px',
       },
     },
   },

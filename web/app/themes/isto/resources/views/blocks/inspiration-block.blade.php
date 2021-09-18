@@ -11,7 +11,7 @@
 --}}
 
 @php
-$verticalSpace = get_field('vertical_space') ?? true ? 'my-70px' : '';
+$verticalSpace = get_field('vertical_space') ?? true ? 'my-80px' : '';
 $title = get_field('global')['title'];
 $imageId = get_field('image');
 $object = \Illuminate\Support\Arr::first(get_field('object'));
