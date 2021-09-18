@@ -95,7 +95,7 @@ document.querySelectorAll('.scrollmagic').forEach(function(el) {
     const fadeFromLeft = document.querySelector('.anime-fade-from-left');
     const fadeIn = document.querySelector('.anime-fade-in');
 
-    new ScrollMagic.Scene({ triggerElement: el })
+    new ScrollMagic.Scene({ triggerElement: el, reverse: false })
         .addTo(controller)
         .on("enter", function () {
             const tl = anime.timeline({
