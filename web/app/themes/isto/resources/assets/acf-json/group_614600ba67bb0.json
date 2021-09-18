@@ -3,6 +3,27 @@
     "title": "Block about",
     "fields": [
         {
+            "key": "field_6146028e3351e",
+            "label": "Global",
+            "name": "global",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_613c544c63dc7"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_614600cac6bee",
             "label": "Title",
             "name": "title",
@@ -82,5 +103,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631977709
+    "modified": 1631978146
 }
