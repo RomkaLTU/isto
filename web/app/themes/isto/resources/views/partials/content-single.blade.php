@@ -1,6 +1,6 @@
 <div @php(post_class())>
   <div class="container relative mt-70px mb-100px">
-    <img src="{{ get_the_post_thumbnail_url(get_the_ID(), 'xlarge') }}" alt="" class="lg:absolute lg:right-0 lg:bottom-0 lg:-mb-14 object-cover object-center h-64 lg:h-auto w-full max-w-[464px]">
+    <img src="{{ get_the_post_thumbnail_url(get_the_ID(), 'xlarge') }}" alt="" class="lg:absolute lg:right-0 lg:bottom-0 lg:-mb-14 object-cover object-center h-64 lg:h-[550px] w-full max-w-[464px]">
     <div class="bg-white p-6 py-12 lg:p-50px lg:mr-[8%]">
       @if(!empty($logoId = get_field('logo')))
         <img src="{{ wp_get_attachment_image_url($logoId, 'xlarge') }}" class="max-w-[250px] mb-6" alt="">
