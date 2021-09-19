@@ -28,6 +28,7 @@ module.exports = {
         '1px': '1px',
         '2px': '2px',
         '10px': '10px',
+        '18px': '18px',
         '30px': '30px',
         '40px': '40px',
         '50px': '50px',
@@ -37,7 +38,10 @@ module.exports = {
       },
       height: {
         '590px': '590px',
-      }
+      },
+      maxWidth: {
+        '760px': '760px',
+      },
     },
   },
   variants: {},

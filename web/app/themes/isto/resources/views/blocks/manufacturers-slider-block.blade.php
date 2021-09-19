@@ -29,19 +29,18 @@ $title = $global['title'];
                     @php
                         $bgImage = wp_get_attachment_image_url( get_post_thumbnail_id( $manufacturer->ID ), 'xlarge' );
                         $logoImage = wp_get_attachment_image_url( get_field('logo', $manufacturer->ID), 'full' );
+						$description = get_field('description', $manufacturer);
+						$permalink = get_permalink($manufacturer);
                     @endphp
-                    <a href="#" class="swiper-slide group block bg-cover bg-center"
-                        style="background-image: url({{ $bgImage }})">
-                        <div class="bg-white transition-opacity opacity-80 group-hover:opacity-100 w-[255px] h-[238px] flex items-center justify-center p-14">
-                            <img src="{{ $logoImage }}" alt="{{  $manufacturer->post_title }}">
-                        </div>
-                    </a>
+                    <div class="swiper-slide">
+                        @include('partials.content-manufacturers-slider')
+                    </div>
                 @endforeach
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
 
-        @include('blocks.partials.more-link', ['title' => __('Visi gamintojai', 'isto'), 'link' => '#'])
+        @include('blocks.partials.more-link', ['title' => __('Visi gamintojai', 'isto'), 'link' => \App\getPermalinkByTemplate('manufacturers')])
     </div>
 </div>

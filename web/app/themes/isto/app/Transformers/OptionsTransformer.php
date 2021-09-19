@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class OptionsTransformer
 {
-    private array $data;
+    private $data;
 
     public function __construct(array $data)
     {
@@ -19,8 +19,8 @@ class OptionsTransformer
     {
         $data = [];
 
-        foreach ($this->data as $option) {
-            $data[Str::after($option->option_name, 'options_')] = $option->option_value;
+        foreach ($this->data as $item) {
+            $data[Str::after($item->option_name, 'options_')] = $item->option_value;
         }
 
         return $data;

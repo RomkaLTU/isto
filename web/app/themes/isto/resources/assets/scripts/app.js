@@ -1,5 +1,6 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 import Alpine from 'alpinejs';
+import intersect from '@alpinejs/intersect';
 const ScrollMagic = require('scrollmagic');
 import anime from 'animejs/lib/anime.es.js';
 import 'swiper/swiper-bundle.css';
@@ -134,4 +135,5 @@ document.querySelectorAll('.scrollmagic').forEach(function(el) {
         });
 });
 
+Alpine.plugin(intersect);
 Alpine.start();
