@@ -88,6 +88,25 @@ new SwiperCore('.swiper-container-hero', {
 
 // end Hero slider
 
+// ------------------------
+// Materials slider
+// ------------------------
+
+new SwiperCore('.swiper-container-materials', {
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+    },
+    slidesPerView: 1,
+    spaceBetween: 8,
+});
+
+// end Materials slider
+
 document.querySelectorAll('.scrollmagic').forEach(function(el) {
     const controller = new ScrollMagic.Controller();
     const tl = anime.timeline({

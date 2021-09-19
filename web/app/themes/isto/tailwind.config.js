@@ -35,6 +35,9 @@ module.exports = {
         '75px': '75px',
         '80px': '80px',
       },
+      height: {
+        '590px': '590px',
+      }
     },
   },
   variants: {},

@@ -17,7 +17,7 @@
 
 <div class="block-products {{ $verticalSpace }}">
     <div class="container">
-        <div class="swiper swiper-container-hero overflow-hidden relative h-[590px]">
+        <div class="swiper swiper-container-hero overflow-hidden relative h-590px">
             <div class="swiper-wrapper">
                 @foreach ($slides as $slide)
                     @php
