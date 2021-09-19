@@ -30,7 +30,10 @@
 						$description = $manufacturer['description'];
                         ?>
                         <div x-intersect.once="visiblePosts.push({{ $manufacturer['id'] }})" class="h-[512px]">
-                            <div x-show="visiblePosts.includes({{ $manufacturer['id'] }})" x-transition class="h-full">
+                            <div x-show="visiblePosts.includes({{ $manufacturer['id'] }})"
+                                 x-transition:enter="transition duration-500 transform ease-out"
+                                 x-transition:enter-start="opacity-20 translate-y-8"
+                                 class="h-full">
                                 @include('partials.content-manufacturers-slider')
                             </div>
                         </div>
