@@ -11,6 +11,8 @@
 |
 */
 
+use App\Controllers\AppRestController;
+
 if (! file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
     wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
 }
@@ -80,3 +82,20 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 require_once 'cpt.php';
+
+$config = new \Roots\Acorn\Config();
+
+if (WP_DEBUG) {
+	function mailtrap($phpmailer) {
+		$phpmailer->isSMTP();
+		$phpmailer->Host = 'smtp.mailtrap.io';
+		$phpmailer->SMTPAuth = true;
+		$phpmailer->Port = 2525;
+		$phpmailer->Username = MAILTRAP_USER;
+		$phpmailer->Password = MAILTRAP_PASS;
+	}
+
+	add_action('phpmailer_init', 'mailtrap');
+}
+
+add_action( 'rest_api_init', fn() => (new AppRestController())->register_routes());

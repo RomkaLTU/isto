@@ -135,5 +135,98 @@ document.querySelectorAll('.scrollmagic').forEach(function(el) {
         });
 });
 
+// ------------------------
+// Contact us form
+// ------------------------
+
+document.addEventListener('alpine:init', () => {
+    Alpine.data('contactUs', () => ({
+        data: {
+            loading: false,
+            name: null,
+            email: null,
+            phone: null,
+            message: null,
+            cities: [],
+            privacy_policy: false,
+            errors: false,
+            response: null,
+            sent: false,
+        },
+
+        handleErrors(response) {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+
+            return response;
+        },
+
+        handleValidation() {
+            if (
+                !this.data.name ||
+                !this.data.email ||
+                !this.data.phone ||
+                !this.data.message ||
+                !this.data.cities.length ||
+                !this.data.privacy_policy
+            ) {
+                this.data.errors = true;
+                this.data.sent = false;
+                this.data.loading = false;
+                this.data.response = 'Fields market with * is required.';
+
+                return false;
+            }
+
+            return true;
+        },
+
+        resetForm() {
+            this.data.name = null;
+            this.data.email = null;
+            this.data.phone = null;
+            this.data.message = null;
+            this.data.cities = [];
+            this.data.privacy_policy = false;
+        },
+
+        submitForm() {
+            this.data.loading = true;
+            this.data.errors = false;
+
+            if (!this.handleValidation()) {
+                return;
+            }
+
+            fetch('/wp-json/isto/v1/contactus', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.data),
+            })
+            .then(this.handleErrors)
+            .then((response) => {
+                this.data.errors = false;
+                this.data.loading = false;
+                this.data.response = '';
+                this.data.sent = true;
+                this.resetForm();
+
+                console.log(response);
+            })
+            .catch((error) => {
+                this.data.errors = true;
+                this.data.loading = false;
+                this.data.response = error;
+            })
+            .finally(() => {
+                this.loading = false;
+            });
+        },
+    }));
+});
+
+// end Contact us form
+
 Alpine.plugin(intersect);
 Alpine.start();

@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         'gray': {
           1: '#f5f5f5',
+          2: '#A3A3A5',
         },
       },
       fontSize: {
@@ -35,6 +36,7 @@ module.exports = {
         '70px': '70px',
         '75px': '75px',
         '80px': '80px',
+        '90px': '90px',
         '100px': '100px',
       },
       height: {
@@ -47,6 +49,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
 }
