@@ -9,7 +9,7 @@ use WP_REST_Controller;
 use WP_REST_Response;
 use WP_REST_Server;
 
-class AppRestController extends WP_REST_Controller
+class ContactUsController extends WP_REST_Controller
 {
 	public function register_routes(): void
 	{
@@ -109,5 +109,10 @@ class AppRestController extends WP_REST_Controller
 			'message' => $message,
 			'privacy_policy' => $privacy_policy,
 		];
+	}
+
+	private function saveRequest()
+	{
+		// @TODO save item to custom post type
 	}
 }

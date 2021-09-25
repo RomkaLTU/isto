@@ -11,7 +11,7 @@
 |
 */
 
-use App\Controllers\AppRestController;
+use App\Controllers\ContactUsController;
 
 if (! file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
     wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
@@ -98,4 +98,4 @@ if (WP_DEBUG) {
 	add_action('phpmailer_init', 'mailtrap');
 }
 
-add_action( 'rest_api_init', fn() => (new AppRestController())->register_routes());
+add_action( 'rest_api_init', fn() => (new ContactUsController())->register_routes());
