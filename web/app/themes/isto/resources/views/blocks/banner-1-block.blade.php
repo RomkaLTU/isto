@@ -11,11 +11,11 @@
 --}}
 
 @php
-$link = get_field('link');
-$title = get_field('title');
-$subtitle = get_field('subtitle');
-$imageId = get_field('image');
-$verticalSpace = get_field('vertical_space') ?? true ? 'my-80px' : '';
+    $link = get_field('link');
+    $title = get_field('title');
+    $subtitle = get_field('subtitle');
+    $imageId = get_field('image');
+    $verticalSpace = get_field('vertical_space') ?? true ? 'my-80px' : '';
 @endphp
 
 <div class="block-banner-1 container {{ $verticalSpace }}">
