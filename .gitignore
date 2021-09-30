@@ -27,3 +27,5 @@ web/.htaccess
 wp-cli.local.yml
 .idea
 .history
+
+docker/data/*

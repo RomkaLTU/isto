@@ -23,45 +23,6 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
-        },
-        {
-            "key": "field_614f3541a12ca",
-            "label": "Recipients",
-            "name": "recipients",
-            "type": "repeater",
-            "instructions": "Will send emails to default admin email if omitted.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_614f3567a12cb",
-                    "label": "Email",
-                    "name": "email",
-                    "type": "email",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                }
-            ]
         }
     ],
     "location": [
@@ -81,5 +42,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632581033
+    "modified": 1632597348
 }

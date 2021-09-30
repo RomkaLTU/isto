@@ -1,0 +1,33 @@
+services:
+  nginx:
+    image: nginx:1.21.3
+    volumes:
+      - ../:/app
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - phpfpm
+      - db
+    ports:
+      - 8080:80
+
+  phpfpm:
+    build: ./php/.
+    volumes:
+      - ../:/app
+
+  db:
+    image: mariadb:10.6
+    ports:
+      - 33061:3306
+    volumes:
+      - ./data:/bitnami/mysql/data
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=isto
+
+  adminer:
+    image: adminer
+    depends_on:
+      - nginx
+    ports:
+      - 8081:8080
