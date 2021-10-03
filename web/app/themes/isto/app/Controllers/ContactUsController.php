@@ -20,6 +20,7 @@ class ContactUsController extends WP_REST_Controller
 			[
 				'methods'             => WP_REST_Server::CREATABLE,
 				'callback'            => [$this, 'post_process_contact_us_form'],
+				'permission_callback' => '__return_true',
 			],
 		]);
 	}

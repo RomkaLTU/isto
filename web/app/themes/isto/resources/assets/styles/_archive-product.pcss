@@ -1,0 +1,25 @@
+.woocommerce-breadcrumb {
+    @apply text-right;
+}
+
+.woocommerce-loop-product__title {
+    @apply lg:text-22px font-headings mt-2;
+}
+
+.products {
+    @apply grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-30px;
+}
+
+.attachment-woocommerce_thumbnail {
+
+}
+
+.woocommerce-loop-product__link.group .attachment-woocommerce_thumbnail {
+    @apply object-cover transform transition duration-500;
+}
+
+.woocommerce-loop-product__link.group:hover {
+    .attachment-woocommerce_thumbnail {
+        @apply scale-110;
+    }
+}

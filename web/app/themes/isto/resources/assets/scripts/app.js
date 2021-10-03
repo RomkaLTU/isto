@@ -228,5 +228,30 @@ document.addEventListener('alpine:init', () => {
 
 // end Contact us form
 
+// ------------------------
+// Product categories
+// ------------------------
+
+const parentCategories = document.querySelectorAll('.wc-block-product-categories-list--depth-0 > .wc-block-product-categories-list-item');
+
+parentCategories.forEach(function(el) {
+    const parentCategory = el.querySelector('a');
+
+    parentCategory
+        .addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const parentItem = e.target;
+            const submenu = parentItem.nextElementSibling;
+
+            parentItem.classList.toggle('inactive');
+            submenu.classList.toggle('hidden');
+        });
+
+
+});
+
+// end Product categories
+
 Alpine.plugin(intersect);
 Alpine.start();
