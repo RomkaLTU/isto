@@ -253,5 +253,43 @@ parentCategories.forEach(function(el) {
 
 // end Product categories
 
+// --------------------------
+// Product categories mobile
+// --------------------------
+
+const parentItems = document.querySelectorAll('.nav-primary-mobile > .menu-item-has-children > .sub-menu > li.menu-item > a');
+
+parentItems.forEach(function(parentItem) {
+    parentItem.addEventListener('click', function(el) {
+        el.preventDefault();
+
+        const parentItemTitle = el.currentTarget.innerText;
+        const subMenu = el.currentTarget.nextElementSibling;
+        const subMenuTitleEl = document.createElement('li');
+        const subMenuTitleBackEl = document.createElement('img');
+        const subMenuTitleContent = document.createTextNode(parentItemTitle);
+
+        subMenu.classList.add('active');
+
+        subMenuTitleEl.classList.add('submenu-title');
+        subMenuTitleEl.appendChild(subMenuTitleContent);
+
+        subMenuTitleBackEl.setAttribute('src', '/arrow-left.svg');
+        subMenuTitleBackEl.classList.add('submenu-back', 'w-6');
+
+        subMenuTitleEl.prepend(subMenuTitleBackEl);
+        subMenu.prepend(subMenuTitleEl);
+
+        subMenu.querySelector('.submenu-back').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            subMenuTitleEl.remove();
+            subMenu.classList.remove('active');
+        });
+    });
+});
+
+// end Product categories mobile
+
 Alpine.plugin(intersect);
 Alpine.start();

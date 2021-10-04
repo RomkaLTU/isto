@@ -10,7 +10,7 @@
             <h1 class="text-35px mb-6">{{ __('Produktai', 'isto') }}</h1>
 
             @if(!empty($categories))
-                <div class="grid lg:grid-cols-3 lg:gap-8">
+                <div class="grid lg:grid-cols-3 gap-8">
                     @foreach($categories as $category)
                         <?php
                             $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);

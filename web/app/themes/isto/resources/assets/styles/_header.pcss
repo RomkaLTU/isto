@@ -36,5 +36,73 @@
                 background-color: #000000;
             }
         }
+
+        .sub-menu {
+            @apply lg:hidden;
+        }
+    }
+}
+
+.nav-primary-mobile {
+    @apply leading-10;
+
+    a {
+        display: block;
+    }
+
+    & > .menu-item-has-children > .sub-menu {
+        @apply ml-6;
+
+        & > li {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 20px;
+                height: 20px;
+                background-image: url('../images/arrow-right-2.svg');
+                background-repeat: no-repeat;
+            }
+        }
+
+        .sub-menu {
+            @apply hidden;
+
+            &.active {
+                display: block;
+                position: fixed;
+                left: 0;
+                top: 0;
+                margin-top: 167px;
+                background-color: whitesmoke;
+                width: 100%;
+                height: 100%;
+                z-index: 60;
+                padding-left: 64px;
+                padding-top: 70px;
+            }
+        }
+    }
+
+    .submenu-title {
+        font-weight: bold;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .submenu-back {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: 27px;
+        margin-top: 5px;
+        width: 30px;
     }
 }
