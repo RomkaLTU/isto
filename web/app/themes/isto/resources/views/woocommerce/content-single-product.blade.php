@@ -119,7 +119,11 @@ if ( post_password_required() ) {
 		</div>
 
 		<div class="my-16 lg:my-80px">
-			@include('partials.contact-form', ['product' => true])
+			@include('partials.contact-form', [
+				'product' => true,
+				'product_link' => $product->get_permalink(),
+				'product_title' => $product->get_title(),
+			])
 		</div>
 
 		<div class="my-8 lg:my-80px">

@@ -150,9 +150,16 @@ document.addEventListener('alpine:init', () => {
             message: null,
             cities: [],
             privacy_policy: false,
+            product_link: null,
+            product_title: null,
             errors: false,
             response: null,
             sent: false,
+        },
+
+        setProps(title, link) {
+            this.data.product_link = link;
+            this.data.product_title = title;
         },
 
         handleErrors(response) {

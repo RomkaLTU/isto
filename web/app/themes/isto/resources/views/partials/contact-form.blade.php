@@ -2,7 +2,7 @@
 $gap = isset($product) ? 'lg:gap-8' : 'lg:gap-[125px]';
 ?>
 
-<form action="" method="post" @submit.prevent="submitForm()" x-data="contactUs">
+<form action="" method="post" @submit.prevent="submitForm()" x-data="contactUs" x-init="setProps('{{ $product_title }}', '{{ $product_link }}' )">
     <div class="text-14px uppercase mb-5">{{ __('Užklausos forma', 'isto') }}</div>
     <div class="grid lg:grid-cols-2 gap-4 {{ $gap }}">
         <div class="flex flex-col space-y-4">

@@ -58,18 +58,28 @@ class ContactUsController extends WP_REST_Controller
 
 	private function send_email(array $data): bool
 	{
+		$emailTitle = $data['product_link'] ? 'Product form request - ' : 'Contact form request - ';
+
 		$body = "
 		User: {$data['name']}<br>
 		Email: {$data['email']}<br>
 		Phone: {$data['phone']}<br>
-		Message: {$data['message']}<br>
 		";
+
+		if ($data['product_link']) {
+			$body .= "
+			Product name: {$data['product_title']}<br>
+			Product link: <a href='{$data['product_link']}'>{$data['product_title']}</a><br>
+			";
+		}
+
+		$body .= "Message: {$data['message']}<br>";
 
 		add_filter( 'wp_mail_content_type', fn() => 'text/html' );
 
 		$email = wp_mail(
 			get_option('admin_email'),
-			'Contact form request - ' . get_option('blogname'),
+			$emailTitle . get_option('blogname'),
 			$body
 		);
 
@@ -89,6 +99,8 @@ class ContactUsController extends WP_REST_Controller
 		$phone = Arr::get($data, 'phone');
 		$cities = Arr::get($data, 'cities');
 		$message = Arr::get($data, 'message');
+		$product_link = Arr::get($data, 'product_link');
+		$product_title = Arr::get($data, 'product_title');
 		$privacy_policy = Arr::get($data, 'privacy_policy');
 
 		if (
@@ -108,6 +120,8 @@ class ContactUsController extends WP_REST_Controller
 			'phone' => $phone,
 			'cities' => $cities,
 			'message' => $message,
+			'product_link' => $product_link,
+			'product_title' => $product_title,
 			'privacy_policy' => $privacy_policy,
 		];
 	}
