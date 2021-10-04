@@ -22,7 +22,7 @@ class ProductCategoriesComposer extends Composer
 		return get_categories([
 			'taxonomy' => 'product_cat',
 			'hide_empty' => false,
-			'exclude' => [31, 32],
+			'exclude' => get_field('excluded_ids'),
 		]);
 	}
 }
