@@ -1,6 +1,7 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
+import collapse from '@alpinejs/collapse'
 const ScrollMagic = require('scrollmagic');
 import anime from 'animejs/lib/anime.es.js';
 import 'swiper/swiper-bundle.css';
@@ -13,7 +14,7 @@ window.Alpine = Alpine;
 // Manufacturers slider
 // ------------------------
 
-new SwiperCore('.swiper-container-manufacturers', {
+new SwiperCore('.swiper-container-manufacturers, .swiper-container-related', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -292,4 +293,5 @@ parentItems.forEach(function(parentItem) {
 // end Product categories mobile
 
 Alpine.plugin(intersect);
+Alpine.plugin(collapse);
 Alpine.start();

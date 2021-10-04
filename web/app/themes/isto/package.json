@@ -25,7 +25,7 @@
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.18",
     "@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
-    "@wordpress/babel-preset-default": "^6.3.1",
+    "@wordpress/babel-preset-default": "^6.3.2",
     "@wordpress/browserslist-config": "^4.1.0",
     "@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
     "babel-eslint": "^10.1.0",
@@ -34,29 +34,30 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.24.2",
-    "laravel-mix": "^6.0.29",
+    "laravel-mix": "^6.0.31",
     "laravel-mix-copy-watched": "^2.3.1",
     "laravel-mix-purgecss": "^6.0.0",
     "npm-run-all": "^4.1",
-    "postcss": "^8.3.6",
+    "postcss": "^8.3.8",
     "purgecss-with-wordpress": "^4.0.3",
     "rimraf": "^3.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "tailwindcss": "^2.2.9",
+    "tailwindcss": "^2.2.16",
     "vue-template-compiler": "^2.6.14"
   },
   "dependencies": {
-    "@alpinejs/intersect": "^3.3.5",
-    "@tailwindcss/forms": "^0.3.3",
+    "@alpinejs/collapse": "^3.4.2",
+    "@alpinejs/intersect": "^3.4.2",
+    "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
-    "alpinejs": "^3.1.1",
+    "alpinejs": "^3.4.2",
     "animejs": "^3.2.1",
-    "autoprefixer": "^10.3.4",
-    "postcss-custom-properties": "^11.0.0",
+    "autoprefixer": "^10.3.6",
+    "postcss-custom-properties": "^12.0.0",
     "postcss-import": "^14.0.2",
     "postcss-nested": "^5.0.6",
     "scrollmagic": "^2.0.8",
-    "swiper": "^6.7.1"
+    "swiper": "^6.8.4"
   }
 }

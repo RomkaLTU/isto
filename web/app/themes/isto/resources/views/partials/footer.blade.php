@@ -1,17 +1,7 @@
 <footer class="py-8">
     <div class="container">
         <div class="mt-6">
-            <div class="flex items-center justify-center space-x-4 mb-8">
-                @if(!empty($themeOptions['contacts_social_facebook']))
-                    <a href="{{ $themeOptions['contacts_social_facebook'] }}"><img src="@asset('images/facebook.svg')" alt=""></a>
-                @endif
-                @if(!empty($themeOptions['contacts_social_instagram']))
-                    <a href="{{ $themeOptions['contacts_social_instagram'] }}"><img src="@asset('images/instagram.svg')" alt=""></a>
-                @endif
-                @if(!empty($themeOptions['contacts_social_pinterest']))
-                    <a href="{{ $themeOptions['contacts_social_pinterest'] }}"><img src="@asset('images/pinterest.svg')" alt=""></a>
-                @endif
-            </div>
+            @include('partials.social')
             <div class="text-14px text-center prose max-w-full">
                 {!! nl2br($themeOptions['contacts_contacts']) !!}
             </div>
