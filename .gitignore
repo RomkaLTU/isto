@@ -7,6 +7,7 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 
 !web/app/plugins/advanced-custom-fields-pro
+!web/app/plugins/woocommerce-ajax-filters
 
 # WordPress
 web/wp

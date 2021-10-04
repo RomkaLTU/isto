@@ -259,6 +259,17 @@ parentCategories.forEach(function(el) {
 
 });
 
+const bapfAttributeTitle = document.querySelectorAll('.bapf_head');
+
+bapfAttributeTitle.forEach(function(el) {
+    // @FIXME po filtravimo nebeveikia click event'as
+    el.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        this.nextElementSibling.classList.toggle('hidden');
+    });
+});
+
 // end Product categories
 
 // --------------------------

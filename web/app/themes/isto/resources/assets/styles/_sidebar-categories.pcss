@@ -29,3 +29,42 @@
         @apply font-body font-medium text-14px uppercase leading-7 mb-3;
     }
 }
+
+.sidebar {
+    .bapf_head {
+        @apply font-headings uppercase font-bold text-18px relative max-w-[145px] mb-1 cursor-pointer;
+
+        &:after {
+            content: '';
+            background-image: url('../images/arrow-up.svg');
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            margin-top: 4px;
+        }
+    }
+
+    .bapf_body {
+        li {
+            @apply font-body font-medium text-14px uppercase leading-7 mb-3;
+
+            input[type="checkbox"] {
+                border: 1px solid #cccccc;
+                background-color: #f5f5f5;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                padding: 3px;
+            }
+        }
+
+        li.checked {
+            input[type="checkbox"] {
+                background-color: #333333;
+            }
+        }
+    }
+}
