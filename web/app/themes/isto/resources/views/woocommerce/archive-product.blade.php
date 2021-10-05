@@ -32,7 +32,7 @@ the readme will list any important changes.
     @endphp
   </header>
 
-  <div x-data="{ show: false }" class="my-4">
+  <div x-data="{ show: false }" class="my-4 lg:hidden">
     <button @click.prevent="show = !show" class="flex items-center space-x-3">
       <svg xmlns="http://www.w3.org/2000/svg" width="18.552" height="14.453" viewBox="0 0 18.552 14.453">
         <g id="svgexport-3" transform="translate(-299 -372.09)">
