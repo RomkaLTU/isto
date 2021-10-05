@@ -109,3 +109,5 @@ if (!function_exists('woocommerce_template_loop_product_link_open')) {
 		echo '<a href="' . esc_url( $link ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link block group with-arrow">';
 	}
 }
+
+add_filter( 'show_admin_bar', '__return_false' );
