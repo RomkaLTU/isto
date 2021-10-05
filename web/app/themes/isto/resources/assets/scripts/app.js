@@ -312,12 +312,13 @@ parentItems.forEach(function(parentItem) {
 
 // end Product categories mobile
 
-
-const ps = new PerfectScrollbar('.inner-scroll', {
-    wheelSpeed: 2,
-    wheelPropagation: true,
-    minScrollbarLength: 20
-});
+if (document.querySelector('.inner-scroll')) {
+    new PerfectScrollbar('.inner-scroll', {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 20
+    });
+}
 
 
 Alpine.plugin(intersect);
