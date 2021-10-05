@@ -5,6 +5,8 @@ import collapse from '@alpinejs/collapse'
 const ScrollMagic = require('scrollmagic');
 import anime from 'animejs/lib/anime.es.js';
 import 'swiper/swiper-bundle.css';
+import PerfectScrollbar from 'perfect-scrollbar';
+import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -309,6 +311,14 @@ parentItems.forEach(function(parentItem) {
 });
 
 // end Product categories mobile
+
+
+const ps = new PerfectScrollbar('.inner-scroll', {
+    wheelSpeed: 2,
+    wheelPropagation: true,
+    minScrollbarLength: 20
+});
+
 
 Alpine.plugin(intersect);
 Alpine.plugin(collapse);

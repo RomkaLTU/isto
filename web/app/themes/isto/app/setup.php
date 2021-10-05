@@ -135,7 +135,7 @@ add_action('widgets_init', function () {
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id' => 'sidebar-footer'
+        'name' => __('Filters', 'sage'),
+        'id' => 'sidebar-filters'
     ] + $config);
 });
