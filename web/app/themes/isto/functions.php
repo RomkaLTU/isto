@@ -111,3 +111,34 @@ if (!function_exists('woocommerce_template_loop_product_link_open')) {
 }
 
 add_filter( 'show_admin_bar', '__return_false' );
+
+/**
+ *  Add in your themes functions.php
+ *  Exclude featured product in the main product loop
+ */
+add_action( 'woocommerce_product_query', function ($query) {
+
+	if ( ! is_admin() && $query->is_main_query() ) {
+		// Not a query for an admin page.
+		// It's the main query for a front end page of your site.
+
+		if ( is_product_category() ) {
+			// It's the main query for a product category archive.
+
+			$tax_query = (array) $query->get( 'tax_query' );
+
+			// Tax query to exclude featured product
+			$tax_query[] = array(
+				'taxonomy' => 'product_visibility',
+				'field'    => 'name',
+				'terms'    => 'featured',
+				'operator' => 'NOT IN',
+			);
+
+
+			$query->set( 'tax_query', $tax_query );
+		}
+
+	}
+
+} );
