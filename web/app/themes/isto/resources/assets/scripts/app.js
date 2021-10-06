@@ -1,7 +1,8 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
-import collapse from '@alpinejs/collapse'
+import collapse from '@alpinejs/collapse';
+import persist from '@alpinejs/persist';
 const ScrollMagic = require('scrollmagic');
 import anime from 'animejs/lib/anime.es.js';
 import 'swiper/swiper-bundle.css';
@@ -215,14 +216,12 @@ document.addEventListener('alpine:init', () => {
                 body: JSON.stringify(this.data),
             })
             .then(this.handleErrors)
-            .then((response) => {
+            .then(() => {
                 this.data.errors = false;
                 this.data.loading = false;
                 this.data.response = '';
                 this.data.sent = true;
                 this.resetForm();
-
-                console.log(response);
             })
             .catch((error) => {
                 this.data.errors = true;
@@ -234,6 +233,31 @@ document.addEventListener('alpine:init', () => {
             });
         },
     }));
+
+    // Alpine.data('wishlist', () => ({
+    //     toggleFavorite(productId) {
+    //         let currentItems = JSON.parse(localStorage.getItem('favs')) ?? [];
+    //
+    //         console.log(currentItems);
+    //
+    //         if (!currentItems) {
+    //             currentItems.push(productId);
+    //             localStorage.setItem('favs', JSON.stringify(currentItems));
+    //             return;
+    //         }
+    //
+    //         if (!currentItems.includes(productId)) {
+    //             const newItems = currentItems.push(productId);
+    //             localStorage.setItem('favs', JSON.stringify(newItems));
+    //             return;
+    //         }
+    //
+    //         if (currentItems.includes(productId)) {
+    //             const newItems = currentItems.filter((item) => item === productId);
+    //             localStorage.setItem('favs', JSON.stringify(newItems));
+    //         }
+    //     }
+    // }));
 });
 
 // end Contact us form
@@ -312,6 +336,10 @@ parentItems.forEach(function(parentItem) {
 
 // end Product categories mobile
 
+// --------------------------
+// Perfect scroll init
+// --------------------------
+
 if (document.querySelector('.inner-scroll')) {
     new PerfectScrollbar('.inner-scroll', {
         wheelSpeed: 2,
@@ -320,7 +348,35 @@ if (document.querySelector('.inner-scroll')) {
     });
 }
 
+// end Perfect scroll init
 
+Alpine.store('favs', {
+    items: [],
+
+    init() {
+        const items = JSON.parse(localStorage.getItem('favs'));
+
+        if (items) {
+            this.items = items
+        }
+    },
+
+    toggleFav(productId) {
+        if (!this.items.includes(productId)) {
+            this.items.push(productId);
+        } else {
+            this.items = this.items.filter((item) => item !== productId);
+        }
+
+        localStorage.setItem('favs', JSON.stringify(this.items));
+    },
+
+    isSelected(productId) {
+        return this.items.includes(productId);
+    }
+});
+
+Alpine.plugin(persist);
 Alpine.plugin(intersect);
 Alpine.plugin(collapse);
 Alpine.start();
