@@ -1,5 +1,5 @@
 <?php
-$gap = isset($product) ? 'lg:gap-8' : 'lg:gap-[125px]';
+$gap = isset($product) || isset($favorites) ? 'lg:gap-8' : 'lg:gap-[125px]';
 ?>
 
 <form action="" method="post" @submit.prevent="submitForm()" x-data="contactUs" x-init="setProps('{{ $product_title }}', '{{ $product_link }}' )">

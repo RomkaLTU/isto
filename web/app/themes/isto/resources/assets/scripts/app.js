@@ -8,6 +8,7 @@ import anime from 'animejs/lib/anime.es.js';
 import 'swiper/swiper-bundle.css';
 import PerfectScrollbar from 'perfect-scrollbar';
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+import Cookies from 'js-cookie';
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -354,10 +355,10 @@ Alpine.store('favs', {
     items: [],
 
     init() {
-        const items = JSON.parse(localStorage.getItem('favs'));
+        const itemsCookie = Cookies.get('favs');
 
-        if (items) {
-            this.items = items
+        if (itemsCookie) {
+            this.items = JSON.parse(itemsCookie);
         }
     },
 
@@ -368,7 +369,7 @@ Alpine.store('favs', {
             this.items = this.items.filter((item) => item !== productId);
         }
 
-        localStorage.setItem('favs', JSON.stringify(this.items));
+        Cookies.set('favs', JSON.stringify(this.items));
     },
 
     isSelected(productId) {
