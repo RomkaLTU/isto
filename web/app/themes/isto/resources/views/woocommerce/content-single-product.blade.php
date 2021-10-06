@@ -152,7 +152,9 @@ if ( post_password_required() ) {
 			<div>{{ __('Dizaineris', 'isto') }}: {{ $product->get_attribute('pa_dizaineris') }}</div>
 			<div>{{ __('Gamintojas', 'isto') }}: {{ $product->get_attribute('pa_gamintojas') }}</div>
 			@if($product->is_featured())
-				<div>{{ __('Liko vienetu', 'isto') }}: {{ $product->get_stock_quantity() }}</div>
+				@if(!empty($stock_quantity = $product->get_stock_quantity()))
+					<div>{{ __('Liko vienetu', 'isto') }}: {{ $stock_quantity }}</div>
+				@endif
 				@if($productLocations)
 					<div>
 						{{ __('Prekės vieta', 'isto') }}: {{ $productLocationsFormatted }}
