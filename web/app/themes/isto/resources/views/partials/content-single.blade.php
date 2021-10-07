@@ -9,6 +9,26 @@
                 </div>
             </div>
         </div>
-        <?php the_content(); ?>
+        <div>
+	        <?php the_content(); ?>
+        </div>
+
+        @if(!empty($related_post_ids))
+            <div class="border-t border-black pt-50px">
+                <h3 class="mb-3 text-22px uppercase">
+                    {{ __('Daugiau įkvėpimo', 'isto') }}
+                </h3>
+                <div class="grid lg:grid-cols-3 gap-4 lg:gap-50px">
+                    @foreach($related_post_ids as $postId)
+                        <?php
+		                $post = get_post($postId);
+		                setup_postdata( $GLOBALS['post'] =& $post );
+                        ?>
+                        @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+                    @endforeach
+                    <?php wp_reset_postdata(); ?>
+                </div>
+            </div>
+        @endif
     </div>
 </div>
