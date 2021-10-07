@@ -92,13 +92,7 @@ if ( post_password_required() ) {
 
 	<div class="flex flex-col lg:flex-row">
 		<div class="flex-1 flex justify-between">
-			<div class="flex justify-start space-x-3">
-				<span class="text-14px">{{ __('Dalintis', 'isto') }}</span>
-				<div class="flex items-center justify-center space-x-4 mb-8">
-					<a href="https://www.facebook.com/sharer/sharer.php?u={{ get_permalink($product->get_id()) }}"><img src="@asset('images/facebook.svg')" alt=""></a>
-					<a href="//pinterest.com/pin/create/link/?url={{ get_permalink($product->get_id()) }}"><img src="@asset('images/pinterest.svg')" alt=""></a>
-				</div>
-			</div>
+			@include('partials.share', ['post_id' => $product->get_id()])
 			<div x-data class="cursor-pointer lg:hidden">
 				<svg @click.prevent="$store.favs.toggleFav({{ $product->get_id() }})" xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 32.787 28.861">
 					<g id="Like_icon" data-name="Like icon" transform="translate(0.5 0.5)">

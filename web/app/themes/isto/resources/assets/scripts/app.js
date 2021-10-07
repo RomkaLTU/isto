@@ -98,7 +98,7 @@ new SwiperCore('.swiper-container-hero', {
 // Materials slider
 // ------------------------
 
-new SwiperCore('.swiper-container-materials', {
+new SwiperCore('.swiper-container-materials, .swiper-container-simple', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
