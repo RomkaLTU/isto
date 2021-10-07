@@ -15,3 +15,11 @@ function getPermalinkByTemplate($template): string {
 
 	return get_permalink($page_id);
 }
+
+function getYoutubeEmbedUrl ($url): string {
+	$parsedUrl = parse_url($url);
+	parse_str(@$parsedUrl['query'], $queryString);
+	$youtubeId = @$queryString['v'] ?? substr(@$parsedUrl['path'], 1);
+
+	return "https://youtube.com/embed/{$youtubeId}";
+}
