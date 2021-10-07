@@ -50,6 +50,6 @@ $excerpt = \Illuminate\Support\Str::words($contentClean, 40, '...');
             </div>
         </div>
 
-        @include('blocks.partials.more-link', ['title' => __('Daugiau įkvėpimo', 'isto'), 'link' => '#'])
+        @include('blocks.partials.more-link', ['title' => __('Daugiau įkvėpimo', 'isto'), 'link' => get_post_type_archive_link('post')])
     </div>
 </div>

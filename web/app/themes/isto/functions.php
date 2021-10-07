@@ -142,3 +142,13 @@ add_action( 'woocommerce_product_query', function ($query) {
 	}
 
 } );
+
+add_action('pre_get_posts', function($query) {
+	if ( is_home() && $query->is_main_query() ) {
+
+		// exclude sticky posts from main news page
+		$stickies = get_option("sticky_posts");
+		$query->set( 'post__not_in', $stickies );
+
+	}
+});
