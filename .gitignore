@@ -30,3 +30,5 @@ wp-cli.local.yml
 .history
 
 docker/data/*
+/web/app/languages/plugins/*
+/web/app/languages/wpml/*
