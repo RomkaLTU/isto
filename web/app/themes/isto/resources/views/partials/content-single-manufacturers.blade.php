@@ -1,3 +1,21 @@
+<?php
+$taxonomyTermId = get_field('products_taxonomy');
+
+$productsQuery = new WP_Query([
+  'post_type' => 'product',
+  'post_status' => 'publish',
+  'posts_per_page' => 7,
+  'tax_query' => [
+    [
+      'taxonomy' => 'pa_gamintojas',
+      'terms' => $taxonomyTermId,
+    ]
+  ],
+]);
+
+$relatedProductIds = wp_list_pluck($productsQuery->get_posts(), 'ID');
+?>
+
 <div @php(post_class())>
   <div class="container relative mt-70px mb-100px">
     <img src="{{ get_the_post_thumbnail_url(get_the_ID(), 'xlarge') }}" alt="" class="lg:absolute lg:right-0 lg:bottom-0 lg:-mb-14 object-cover object-center h-64 lg:h-[550px] w-full max-w-[464px]">
@@ -18,4 +36,10 @@
       @endif
     </div>
   </div>
+
+  @if($relatedProductIds)
+    <div class="container mt-[150px] mb-50px">
+      @include('partials.products-swiper', ['title' => __('Gamintojo produktai', 'isto')])
+    </div>
+  @endif
 </div>
