@@ -81,7 +81,7 @@ $gap = isset($product) || isset($favorites) ? 'lg:gap-8' : 'lg:gap-[125px]';
                                         class="focus:ring-gray-2 h-4 w-4 text-gray-2 border-gray-2 rounded-none">
                                 </div>
                                 <div class="ml-3 text-14px">
-                                    <label for="privacy_policy" class="font-medium text-gray-2 cursor-pointer uppercase">{{ __('Sutinku su privatumo politika*', 'isto') }}</label>
+                                    <a href="{{ get_privacy_policy_url() }}" target="_blank" class="font-medium text-gray-2 cursor-pointer uppercase">{{ __('Sutinku su privatumo politika*', 'isto') }}</a>
                                     <span id="comments-description" class="text-gray-2"><span class="sr-only">{{ __('Sutinku su privatumo politika', 'isto') }}</span></span>
                                 </div>
                             </div>
