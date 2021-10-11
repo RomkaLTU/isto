@@ -25,28 +25,6 @@
             "prefix_name": 0
         },
         {
-            "key": "field_613c93cf702a1",
-            "label": "Product categories",
-            "name": "product_categories",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "product_cat",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "add_term": 1,
-            "save_terms": 1,
-            "load_terms": 0,
-            "return_format": "object",
-            "multiple": 0
-        },
-        {
             "key": "field_61644c3e4211b",
             "label": "Blocks",
             "name": "blocks",
@@ -124,5 +102,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633963594
+    "modified": 1633964104
 }
