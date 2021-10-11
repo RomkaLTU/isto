@@ -153,8 +153,8 @@ if ( post_password_required() ) {
 			{{ $product->get_short_description() }}
 		</div>
 		<div class="text-14px text-center">
-			<div>{{ __('Dizaineris', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_dizaineris'), 'pa_dizaineris') }}">{{ $product->get_attribute('pa_dizaineris') }}</a></div>
-			<div>{{ __('Gamintojas', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_gamintojas'), 'pa_gamintojas') }}">{{ $product->get_attribute('pa_gamintojas') }}</a></div>
+			<div>{{ __('Dizaineris', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_dizaineris'), 'pa_dizaineris') }}">{!! $product->get_attribute('pa_dizaineris') !!}</a></div>
+			<div>{{ __('Gamintojas', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_gamintojas'), 'pa_gamintojas') }}">{!! $product->get_attribute('pa_gamintojas') !!}</a></div>
 			@if($product->is_featured())
 				@if(!empty($stock_quantity = $product->get_stock_quantity()))
 					<div>{{ __('Liko vienetu', 'isto') }}: {{ $stock_quantity }}</div>
