@@ -152,3 +152,48 @@ add_action('pre_get_posts', function($query) {
 
 	}
 });
+
+add_filter('manage_inquiries_posts_columns', function($columns) {
+	unset( $columns['title'] );
+	unset( $columns['date'] );
+	$columns['type'] = __('Inquiry type', 'isto');
+	$columns['name'] = __('Client name', 'isto');
+	$columns['email'] = __('Client email', 'isto');
+	$columns['phone'] = __('Client phone', 'isto');
+	$columns['message'] = __('Message', 'isto');
+	$columns['products'] = __('Products', 'isto');
+	$columns['date'] = __('Date', 'isto');
+
+	return $columns;
+});
+
+add_action('manage_inquiries_posts_custom_column' , function($column, $post_id) {
+	switch ($column) {
+		case 'type':
+			echo ucfirst(get_field('type', $post_id) ?? 'Contacts');
+			break;
+		case 'name':
+			echo get_field('name', $post_id);
+			break;
+		case 'email':
+			$email = get_field('email', $post_id);
+			printf(
+				'<strong><a href="mailto:%s" target="_blank">%s</a></strong>',
+				$email,
+				$email
+			);
+			break;
+		case 'phone':
+			echo get_field('phone', $post_id);
+			break;
+		case 'message':
+			echo get_field('message', $post_id);
+			break;
+		case 'products':
+			$products = get_field('products', $post_id);
+			echo implode("<br>", array_map(function($product) {
+				return sprintf('<a href="%s" target="_blank">%s</a>', get_permalink($product), $product->post_title);
+			}, $products));
+			break;
+	}
+}, 10, 2);

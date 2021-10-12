@@ -1,8 +1,18 @@
 <?php
 $gap = isset($product) || isset($favorites) ? 'lg:gap-8' : 'lg:gap-[125px]';
+$referer = $_SERVER['HTTP_REFERER'];
+$isFavorites = is_page_template('template-favorites.blade.php');
+$contactType = $isFavorites ? 'favorites' : 'contacts';
+$products = $isFavorites ? $_COOKIE['favs']: [];
+$productId = isset($product) ? $product->get_id() : false;
 ?>
 
-<form action="" method="post" @submit.prevent="submitForm()" x-data="contactUs" x-init="setProps('{{ $product_title }}', '{{ $product_link }}' )">
+<form
+    action=""
+    method="post"
+    @submit.prevent="submitForm()"
+    x-data="contactUs"
+    x-init="setProps('{{ $productId }}', '{{ $products }}', '{{ $referer }}', '{{ $contactType }}' )">
     <div class="text-14px uppercase mb-5">{{ __('Užklausos forma', 'isto') }}</div>
     <div class="grid lg:grid-cols-2 gap-4 {{ $gap }}">
         <div class="flex flex-col space-y-4">

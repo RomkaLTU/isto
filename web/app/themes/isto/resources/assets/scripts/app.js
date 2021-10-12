@@ -148,22 +148,26 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('contactUs', () => ({
         data: {
             loading: false,
+            referer: null,
+            type: null,
+            products: [],
             name: null,
             email: null,
             phone: null,
             message: null,
             cities: [],
             privacy_policy: false,
-            product_link: null,
-            product_title: null,
+            productId: null,
             errors: false,
             response: null,
             sent: false,
         },
 
-        setProps(title, link) {
-            this.data.product_link = link;
-            this.data.product_title = title;
+        setProps(productId, products, referer, contactType) {
+            this.data.productId = productId;
+            this.data.products = products ? JSON.parse(products) : [];
+            this.data.referer = referer;
+            this.data.type = contactType;
         },
 
         handleErrors(response) {
@@ -196,6 +200,10 @@ document.addEventListener('alpine:init', () => {
 
         resetForm() {
             this.data.name = null;
+            this.data.type = null;
+            this.data.referer = null;
+            this.data.products = [];
+            this.data.productId = false;
             this.data.email = null;
             this.data.phone = null;
             this.data.message = null;
@@ -234,31 +242,6 @@ document.addEventListener('alpine:init', () => {
             });
         },
     }));
-
-    // Alpine.data('wishlist', () => ({
-    //     toggleFavorite(productId) {
-    //         let currentItems = JSON.parse(localStorage.getItem('favs')) ?? [];
-    //
-    //         console.log(currentItems);
-    //
-    //         if (!currentItems) {
-    //             currentItems.push(productId);
-    //             localStorage.setItem('favs', JSON.stringify(currentItems));
-    //             return;
-    //         }
-    //
-    //         if (!currentItems.includes(productId)) {
-    //             const newItems = currentItems.push(productId);
-    //             localStorage.setItem('favs', JSON.stringify(newItems));
-    //             return;
-    //         }
-    //
-    //         if (currentItems.includes(productId)) {
-    //             const newItems = currentItems.filter((item) => item === productId);
-    //             localStorage.setItem('favs', JSON.stringify(newItems));
-    //         }
-    //     }
-    // }));
 });
 
 // end Contact us form

@@ -39,6 +39,8 @@ class ContactUsController extends WP_REST_Controller
 			], 500);
 		}
 
+		$this->saveRequest($data);
+
 		$emailSent = $this->send_email($data);
 
 		if (!$emailSent) {
@@ -59,6 +61,7 @@ class ContactUsController extends WP_REST_Controller
 	private function send_email(array $data): bool
 	{
 		$emailTitle = $data['product_link'] ? 'Product form request - ' : 'Contact form request - ';
+		$productIds = $data['products'];
 
 		$body = "
 		User: {$data['name']}<br>
@@ -66,11 +69,23 @@ class ContactUsController extends WP_REST_Controller
 		Phone: {$data['phone']}<br>
 		";
 
-		if ($data['product_link']) {
+		if ($data['product_id']) {
+			$post = get_post($data['product_id']);
+			$permalink = get_permalink($post);
 			$body .= "
-			Product name: {$data['product_title']}<br>
-			Product link: <a href='{$data['product_link']}'>{$data['product_title']}</a><br>
+			Product name: {$post->post_title}<br>
+			Product link: <a href='{$permalink}'>{$post->post_title}</a><br>
 			";
+		}
+
+		if (!empty($productIds)) {
+			$body .= "<br><div><strong>Products</strong></div>";
+			foreach ($productIds as $productId) {
+				$post = get_post($productId);
+				$permalink = get_permalink($post);
+				$body .= "<div><a href=\"{$permalink}\">{$post->post_title}</a></div>";
+			}
+			$body .= "<br>";
 		}
 
 		$body .= "Message: {$data['message']}<br>";
@@ -95,12 +110,14 @@ class ContactUsController extends WP_REST_Controller
 	private function validate_input(array $data): array
 	{
 		$name = Arr::get($data, 'name');
+		$type = Arr::get($data, 'type');
+		$products = Arr::get($data, 'products');
+		$referer = Arr::get($data, 'referer');
 		$email = Arr::get($data, 'email');
 		$phone = Arr::get($data, 'phone');
 		$cities = Arr::get($data, 'cities');
 		$message = Arr::get($data, 'message');
-		$product_link = Arr::get($data, 'product_link');
-		$product_title = Arr::get($data, 'product_title');
+		$productId = Arr::get($data, 'productId');
 		$privacy_policy = Arr::get($data, 'privacy_policy');
 
 		if (
@@ -116,18 +133,37 @@ class ContactUsController extends WP_REST_Controller
 
 		return [
 			'name' => $name,
+			'type' => $type,
+			'products' => $products,
+			'referer' => $referer,
 			'email' => $email,
 			'phone' => $phone,
 			'cities' => $cities,
 			'message' => $message,
-			'product_link' => $product_link,
-			'product_title' => $product_title,
+			'product_id' => $productId,
 			'privacy_policy' => $privacy_policy,
 		];
 	}
 
-	private function saveRequest()
+	private function saveRequest($data)
 	{
-		// @TODO save item to custom post type
+		$postId = wp_insert_post([
+			'post_title' => $data['name'],
+			'post_content' => '',
+			'post_status' => 'publish',
+			'post_type' => 'inquiries',
+		]);
+
+		$products = empty($data['products']) ? [$data['product_id']] : $data['products'];
+
+		update_field('products', $products, $postId);
+		update_field('type', $data['type'], $postId);
+		update_field('message', $data['message'], $postId);
+		update_field('cities', $data['cities'], $postId);
+		update_field('phone', $data['phone'], $postId);
+		update_field('email', $data['email'], $postId);
+		update_field('email', $data['email'], $postId);
+		update_field('name', $data['name'], $postId);
+		update_field('referer', $data['referer'], $postId);
 	}
 }

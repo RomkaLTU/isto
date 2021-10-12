@@ -17,7 +17,8 @@
             },
             "choices": {
                 "catalogue": "Catalogue",
-                "contacts": "Contacts"
+                "contacts": "Contacts",
+                "favorites": "Favorites"
             },
             "default_value": "catalogue",
             "allow_null": 0,
@@ -33,7 +34,7 @@
             "name": "referer",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -55,7 +56,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -74,7 +75,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -93,7 +94,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -102,6 +103,30 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_614f76c6192c9",
+            "label": "Cities",
+            "name": "cities",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Vilnius": "Vilnius",
+                "Klaipėda": "Klaipėda"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "horizontal",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
         },
         {
             "key": "field_614f7681192c7",
@@ -123,28 +148,32 @@
             "new_lines": "br"
         },
         {
-            "key": "field_614f76c6192c9",
-            "label": "Cities",
-            "name": "cities",
-            "type": "checkbox",
+            "key": "field_61659828ad1ed",
+            "label": "Products",
+            "name": "products",
+            "type": "relationship",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Vilnius": "Vilnius",
-                "Klaipėda": "Klaipėda"
-            },
-            "allow_custom": 0,
-            "default_value": [],
-            "layout": "horizontal",
-            "toggle": 0,
-            "return_format": "value",
-            "save_custom": 0
+            "post_type": [
+                "product"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
@@ -164,5 +193,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1632598001
+    "modified": 1634048463
 }
