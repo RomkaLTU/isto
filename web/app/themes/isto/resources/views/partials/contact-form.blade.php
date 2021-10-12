@@ -3,7 +3,7 @@ $gap = isset($product) || isset($favorites) ? 'lg:gap-8' : 'lg:gap-[125px]';
 $referer = $_SERVER['HTTP_REFERER'];
 $isFavorites = is_page_template('template-favorites.blade.php');
 $contactType = $isFavorites ? 'favorites' : 'contacts';
-$products = $isFavorites ? $_COOKIE['favs']: [];
+$products = $isFavorites ? $_COOKIE['favs'] : '';
 $productId = isset($product) ? $product->get_id() : false;
 ?>
 
