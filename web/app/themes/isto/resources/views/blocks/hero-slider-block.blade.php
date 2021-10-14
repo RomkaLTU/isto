@@ -28,7 +28,7 @@
                         <div data-hero-line="{{ $loop->iteration - 1 }}" class="hero-line bg-white w-1px h-[150px] lg:h-[300px] absolute -top-full right-0 mr-[50%] lg:mr-[38%]">
                             <div data-hero-text="{{ $loop->iteration - 1 }}" class="hero-text opacity-0 relative h-full">
                                 <div class="absolute bottom-0 left-0 -mb-32 lg:-ml-1 uppercase w-[320px] -translate-x-1/2 lg:transform-none text-center lg:text-left text-white text-50px leading-tight font-headings font-bold">
-                                    Modernus požiūris
+                                    {{ $slide['title'] }}
                                 </div>
                             </div>
                         </div>
