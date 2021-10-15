@@ -41,7 +41,7 @@
                 </div>
             @endforeach
 
-            <a href="#" @click.prevent="showMore = !showMore" class="text-14px flex items-center space-x-2">
+            <a href="#" @click.prevent="showMore = !showMore" class="no-hover text-14px flex items-center space-x-2">
                 <span x-show="!showMore">{{ __('Rodyti daugiau', 'isto') }}</span>
                 <span x-show="showMore">{{ __('Rodyti mažiau', 'isto') }}</span>
                 <svg x-show="!showMore" xmlns="http://www.w3.org/2000/svg" class="h-6 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

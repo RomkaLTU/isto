@@ -1,12 +1,21 @@
-<a href="{{ $permalink ?? '#' }}" class="with-arrow scale-bg group block bg-center h-full"
+<?php
+$isManufacturersTemplate = is_page_template('template-manufacturers.blade.php');
+?>
+
+<a href="{{ $permalink ?? '#' }}" class="with-arrow group block overflow-hidden relative h-full"
    style="background-image: url({{ $bgImage }})">
-    <div class="bg-white transition-opacity opacity-80 group-hover:opacity-100 w-[255px] h-[238px] flex flex-col items-center justify-center p-8">
-        <img src="{{ $logoImage }}" alt="{{  $manufacturer->post_title }}" class="object-fill h-50px">
-        @if(!empty($description))
-            <div class="text-14px text-center mt-4">{!! $description !!}</div>
+    <img src="{{ $bgImage }}" class="object-cover transition-transform duration-700 group-hover:scale-110 h-full w-full" alt="">
+    <div class="absolute left-0 top-0 bg-white transition-opacity opacity-80 w-[255px] @if($isManufacturersTemplate) h-[310px] justify-between @else justify-center h-[238px] @endif flex flex-col items-center p-8">
+        <img src="{{ $logoImage }}" alt="{{  $manufacturer->post_title }}" class="max-h-[160px]">
+        @if($isManufacturersTemplate)
+            <div class="flex flex-col items-center space-y-3">
+                @if(!empty($description))
+                    <div class="text-14px text-center mt-4">{!! $description !!}</div>
+                @endif
+                <div>
+                    <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
+                </div>
+            </div>
         @endif
-        <div class="mt-4">
-            <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
-        </div>
     </div>
 </a>

@@ -25,7 +25,7 @@
         @if(!empty($imageId))
             <div class="lg:absolute lg:inset-0">
                 <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                    <img class="h-56 w-full object-cover lg:absolute lg:h-full" src="{{ wp_get_attachment_image_url($imageId, 'xlarge') }}" alt="">
+                    <img class="h-56 w-full object-cover lg:absolute !m-0 lg:h-full" src="{{ wp_get_attachment_image_url($imageId, 'xlarge') }}" alt="">
                 </div>
             </div>
         @endif
@@ -48,7 +48,7 @@
                         </svg>
                     </div>
                     <a href="{{ $maps_link }}" target="_blank" class="with-arrow flex items-center space-x-1 text-14px">
-                        <span>{{ __('Kaip atvyti', 'isto') }}</span>
+                        <span>{{ __('Kaip atvykti', 'isto') }}</span>
                         <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
                     </a>
                 </div>

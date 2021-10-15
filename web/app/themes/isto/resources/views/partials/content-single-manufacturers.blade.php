@@ -40,6 +40,10 @@ $relatedProductIds = wp_list_pluck($productsQuery->get_posts(), 'ID');
   @if($relatedProductIds)
     <div class="container mt-[150px] mb-50px">
       @include('partials.products-swiper', ['title' => __('Gamintojo produktai', 'isto')])
+      <a href="{{ get_term_link($taxonomyTermId, 'pa_gamintojas') }}" class="with-arrow text-14px flex items-center space-x-1 mt-4">
+        <span>{{ __('Visi gamintojo produktai', 'isto') }}</span>
+        <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
+      </a>
     </div>
   @endif
 </div>

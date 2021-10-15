@@ -86,7 +86,7 @@ h4 {
 
 .scale-bg {
     transition: background-size 1.2s ease-in;
-    background-size: 100%;
+    background-size: cover;
 
     &:hover {
         background-size: 120%;
@@ -108,5 +108,34 @@ h4 {
         .trash-icon {
             display: inline-block;
         }
+    }
+}
+
+a {
+    position: relative;
+}
+
+a:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background-color: #000000;
+    transition: 0.2s width;
+}
+
+a:not(.no-hover):not(.with-arrow):not(.swiper-slide):hover:before {
+    width: 100%;
+}
+
+.black-btn {
+    position: relative;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: scaleX(1.04);
     }
 }

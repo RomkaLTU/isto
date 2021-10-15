@@ -18,7 +18,7 @@
                         ?>
                         <a href="{{ get_term_link($category) }}" class="group with-arrow block relative bg-white p-8">
                             <div class="h-[224px]">
-                                <img class="object-cover transition-all group-hover:scale-110 max-w-[180px] mx-auto" src="{{ $image }}" alt="">
+                                <img class="object-cover transition-all group-hover:scale-110 max-w-[180px] h-[90%] mx-auto" src="{{ $image }}" alt="">
                             </div>
                             <div class="max-w-[170px] h-80px flex flex-col justify-end">
                                 <h2 class="leading-6 text-22px">{{ $category->name }}</h2>

@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="w-full flex items-center lg:items-end justify-between mt-4 lg:mt-0">
-            <a class="brand hidden lg:block flex-1 max-w-[135px]" href="{{ home_url('/') }}">
+            <a class="brand no-hover hidden lg:block flex-1 max-w-[135px]" href="{{ home_url('/') }}">
                 <img src="@asset('images/logo-footer.svg')" alt="">
             </a>
             <div class="flex-1 text-center text-13px">

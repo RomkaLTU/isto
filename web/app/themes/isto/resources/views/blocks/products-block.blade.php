@@ -27,7 +27,7 @@
                         $image = wp_get_attachment_image_url( $block['image'], 'xlarge' );
                         $link = $block['link'];
                     @endphp
-                    <a href="{{ $link['url'] }}" class="group block bg-cover bg-center"
+                    <a href="{{ $link['url'] }}" class="group no-hover block bg-cover bg-center"
                         style="background-image: url({{ $image }})">
                         @if(!empty($link['title']))
                             <h3 class="bg-white transition-opacity opacity-80 group-hover:opacity-100 w-[255px] h-[238px] text-center text-22px leading-tight flex items-center justify-center p-14">

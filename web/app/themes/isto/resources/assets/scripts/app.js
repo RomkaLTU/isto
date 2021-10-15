@@ -252,15 +252,39 @@ document.addEventListener('alpine:init', () => {
 
 const parentCategories = document.querySelectorAll('.wc-block-product-categories-list--depth-0 > .wc-block-product-categories-list-item');
 
+const categoriesTitleEl = document.createElement('a');
+const blockProductCategories = document.querySelector('.wc-block-product-categories');
+categoriesTitleEl.setAttribute('href', '#');
+categoriesTitleEl.innerText = 'Produktų katalogas';
+categoriesTitleEl.classList.add('uppercase','text-13px','mb-2', 'inline-block');
+
+if (blockProductCategories) {
+    blockProductCategories.before(categoriesTitleEl);
+}
+
+const filtersTitleEl = document.createElement('div');
+const sidebarFilters = document.querySelector('.sidebar-filters');
+filtersTitleEl.innerText = 'Filtruoti';
+filtersTitleEl.classList.add('uppercase','text-13px','mb-1', 'inline-block', 'border-t', 'border-gray-2', 'pt-5');
+
+if (sidebarFilters) {
+    document.querySelector('.sidebar-filters').before(filtersTitleEl);
+}
+
 parentCategories.forEach(function(el) {
     const parentCategory = el.querySelector('a');
+    const arrowEl = document.createElement('span');
 
-    parentCategory
+    arrowEl.classList.add('sidebar-sections-toggle');
+
+    parentCategory.before(arrowEl);
+
+    arrowEl
         .addEventListener('click', function(e) {
             e.preventDefault();
 
             const parentItem = e.target;
-            const submenu = parentItem.nextElementSibling;
+            const submenu = parentItem.nextElementSibling.nextElementSibling;
 
             parentItem.classList.toggle('inactive');
             submenu.classList.toggle('hidden');
@@ -276,7 +300,8 @@ bapfAttributeTitle.forEach(function(el) {
     el.addEventListener('click', function(e) {
         e.preventDefault();
 
-        this.nextElementSibling.classList.toggle('hidden');
+        el.classList.toggle('inactive');
+        el.nextElementSibling.classList.toggle('hidden');
     });
 });
 

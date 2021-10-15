@@ -1,3 +1,4 @@
+<div class="absolute hidden pt-5"></div>
 <header class="header mb-8 lg:mb-0" x-data="{showMobileMenu: false}">
   <div class="container py-6">
     <div class="flex items-center justify-between fixed z-40 top-0 left-0 w-full bg-gray-1 lg:bg-transparent px-4 lg:px-0 py-2 lg:py-0 lg:static">
