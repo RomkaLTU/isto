@@ -10,7 +10,7 @@
             {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav-primary', 'echo' => false]) !!}
           @endif
         </div>
-        <div>
+        <div class="flex items-center">
           <a href="{{ \App\getPermalinkByTemplate('favorites') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 32.787 28.861">
               <g id="Like_icon" data-name="Like icon" transform="translate(0.5 0.5)">
@@ -19,6 +19,7 @@
               </g>
             </svg>
           </a>
+          <?php echo do_shortcode('[weglot_switcher]') ?>
         </div>
       </div>
       <div class="lg:hidden mt-[7px]">
@@ -50,7 +51,7 @@
       <div>
         @include('partials.search-field')
       </div>
-      <div>
+      <div class="flex items-center">
         <a href="{{ \App\getPermalinkByTemplate('favorites') }}">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 32.787 28.861">
             <g id="Like_icon" data-name="Like icon" transform="translate(0.5 0.5)">
@@ -59,6 +60,7 @@
             </g>
           </svg>
         </a>
+        <?php echo do_shortcode('[weglot_switcher]') ?>
       </div>
     </div>
     @if (has_nav_menu('primary_navigation'))

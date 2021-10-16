@@ -16,7 +16,7 @@ require('laravel-mix-copy-watched');
 
 mix.setPublicPath('./dist')
     .browserSync({
-        proxy: 'http://isto.loc:8080',
+        proxy: 'https://isto.test',
         open: true,
         cors: true,
     });
