@@ -47,11 +47,16 @@
     @apply leading-10;
 
     a {
+        @apply text-20px font-medium;
         display: block;
     }
 
     & > .menu-item-has-children > .sub-menu {
         @apply ml-6;
+
+        a {
+            @apply font-light;
+        }
 
         & > li {
             position: relative;
@@ -83,12 +88,16 @@
                 z-index: 60;
                 padding-left: 64px;
                 padding-top: 70px;
+
+                a {
+                    @apply text-18px font-medium;
+                }
             }
         }
     }
 
     .submenu-title {
-        font-weight: bold;
+        @apply text-20px font-bold;
         position: absolute;
         width: 100%;
         top: 0;

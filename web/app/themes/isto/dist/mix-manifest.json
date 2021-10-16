@@ -4,7 +4,7 @@
     "/scripts/editor.js": "/scripts/editor.js?id=e34e00aa8787fe96d210",
     "/scripts/manifest.js": "/scripts/manifest.js?id=2d2e309b7f1dcaa45a55",
     "/scripts/manifest.asset.php": "/scripts/manifest.asset.php?id=a895f0bfbe9c42f00b6c",
-    "/styles/app.css": "/styles/app.css?id=ddd857f5337106543d1c",
+    "/styles/app.css": "/styles/app.css?id=76565ea7f7b7b53f21d5",
     "/scripts/vendor.js": "/scripts/vendor.js?id=77673eb0bc3dada6ea91",
     "/images/arrow-down.svg": "/images/arrow-down.svg?id=8489b1f25a816bb03442",
     "/images/arrow-right-1.svg": "/images/arrow-right-1.svg?id=e540ee03d6f18fa280af",
@@ -15,5 +15,8 @@
     "/images/instagram.svg": "/images/instagram.svg?id=13ae9f342430eeb954dc",
     "/images/logo-footer.svg": "/images/logo-footer.svg?id=dbbc55e6e097e353777c",
     "/images/logo.svg": "/images/logo.svg?id=b136a8075290195daeaf",
-    "/images/pinterest.svg": "/images/pinterest.svg?id=a69eedfd16fd2bab9d13"
+    "/images/pinterest.svg": "/images/pinterest.svg?id=a69eedfd16fd2bab9d13",
+    "/fonts/HelveticaNeue-Bold.eot": "/fonts/HelveticaNeue-Bold.eot?id=03137981d43e7e6a3e51",
+    "/fonts/HelveticaNeue-Bold.woff": "/fonts/HelveticaNeue-Bold.woff?id=a04bde589ede5ae20be7",
+    "/fonts/HelveticaNeue-Bold.woff2": "/fonts/HelveticaNeue-Bold.woff2?id=6b00900e56ee09341687"
 }
