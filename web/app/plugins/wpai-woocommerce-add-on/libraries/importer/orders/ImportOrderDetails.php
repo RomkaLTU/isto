@@ -49,6 +49,9 @@ class ImportOrderDetails extends ImportOrderBase {
         );
 
         if (!$this->isNewOrder()) {
+			// Store previous order status.
+        	update_post_meta($this->getPid(), '_previous_status', $this->getArticleData('post_status'));
+
             if ($this->getImport()->options['update_all_data'] == 'no') {
                 $order = new \WC_Order( $this->getPid() );
                 if (!$this->getImport()->options['is_update_dates']) { // preserve date of already existing article when duplicate is found

@@ -85,11 +85,9 @@ class ImportVariableProduct extends ImportProduct {
                 }
                 // Save originally parsed data, but without attributes.
                 $this->saveParsedData();
-                if ($this->getImportService()->isUpdateDataAllowed('is_update_attributes', $this->isNewProduct())) {
-                    $added_variations = $this->linkAllVariations();
-                    $this->getImportService()->syncVariableProductData($this->getProduct()->get_id());
-                    $this->log(sprintf(__('<b>CREATED</b>: %s variations for parent product %s.', \PMWI_Plugin::TEXT_DOMAIN), $added_variations, $this->product->get_title()));
-                }
+	            $added_variations = $this->linkAllVariations();
+	            $this->getImportService()->syncVariableProductData($this->getProduct()->get_id());
+	            $this->log(sprintf(__('<b>CREATED</b>: %s variations for parent product %s.', \PMWI_Plugin::TEXT_DOMAIN), $added_variations, $this->product->get_title()));
                 return;
             }
             switch ($this->getImport()->options['matching_parent']) {
@@ -601,7 +599,7 @@ class ImportVariableProduct extends ImportProduct {
                         }
                     }
                 }
-                $this->syncVariationWithParent($child->get_id());
+                $this->syncVariationWithParent($child->get_id(), false);
                 do_action( 'pmxi_product_variation_saved', $child->get_id() );
             }
         }
@@ -639,6 +637,10 @@ class ImportVariableProduct extends ImportProduct {
             update_post_meta($this->product->get_id(), '_product_attributes', array_unique($currentAttributes));
         }
 
+	    if (!$this->getImportService()->isUpdateDataAllowed('is_update_attributes', $this->isNewProduct())) {
+	    	return 0;
+	    }
+
         // Created posts will all have the following data.
         $variation_post_data = array(
             'post_title' => 'Product #' . $this->product->get_id() . ' Variation',
@@ -675,7 +677,7 @@ class ImportVariableProduct extends ImportProduct {
                 'iteration' => $this->getImport()->iteration,
             ))->insert();
 
-            $this->syncVariationWithParent($variation_id);
+            $this->syncVariationWithParent($variation_id, true);
             $variation_ids[] = $variation_id;
             foreach ( $variation as $key => $value ) {
                 update_post_meta( $variation_id, $key, $value );
@@ -692,16 +694,16 @@ class ImportVariableProduct extends ImportProduct {
      *
      * @param $variationID
      */
-    protected function syncVariationWithParent($variationID) {
+    protected function syncVariationWithParent($variationID, $isNewProduct) {
         $fields = array('_regular_price', '_sale_price', '_sale_price_dates_from', '_sale_price_dates_to', '_price', '_stock', '_backorders');
         foreach ($fields as $field) {
             $value = get_post_meta( $this->product->get_id(), $field, TRUE);
-            update_post_meta( $variationID, $field, $value);
+	        XmlImportWooCommerceService::getInstance()->pushMeta($variationID, $field, $value, $isNewProduct);
         }
         if ( class_exists('woocommerce_wholesale_pricing') ) {
             update_post_meta( $variationID, 'pmxi_wholesale_price', get_post_meta( $this->product->get_id(), 'pmxi_wholesale_price', true ) );
         }
-        update_post_meta( $variationID, '_stock_status', $this->getProperty('stock_status'));
-        update_post_meta( $variationID, '_manage_stock', $this->getProperty('manage_stock'));
+	    XmlImportWooCommerceService::getInstance()->pushMeta($variationID, '_stock_status', $this->getProperty('stock_status'), $isNewProduct);
+	    XmlImportWooCommerceService::getInstance()->pushMeta($variationID, '_manage_stock', $this->getProperty('manage_stock'), $isNewProduct);
     }
 }

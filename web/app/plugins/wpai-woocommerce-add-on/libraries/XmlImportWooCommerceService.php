@@ -160,6 +160,9 @@ final class XmlImportWooCommerceService {
      */
     public function syncVariableProductData($parentID) {
         $product = new \WC_Product_Variable($parentID);
+
+		do_action('wp_all_import_before_variable_product_import', $product->get_id());
+
         $variations = array();
         $variationIDs = $product->get_children();
         // Collect product variations.
@@ -189,7 +192,7 @@ final class XmlImportWooCommerceService {
                     $taxonomy_name = strpos($name, "%") !== FALSE ? urldecode($name) : $name;
                     $terms = [];
                     if (isset($variation_attributes[$name]) && is_array($variation_attributes[$name])) {
-	                    $variation_attributes[$name] = array_filter($variation_attributes[$name]);
+	                    $variation_attributes[$name] = array_filter($variation_attributes[$name], 'strlen');
                     }
                     if (!empty($variation_attributes[$name])) {
                         foreach ($variation_attributes[$name] as $attribute_term_slug) {
@@ -276,7 +279,7 @@ final class XmlImportWooCommerceService {
             $parentMeta = get_post_meta($product->get_id(), '');
             if ("manual" !== $this->getImport()->options['duplicate_matching']) {
                 foreach ($this->getImport()->options['custom_name'] as $customFieldName) {
-                    if ($this->isUpdateCustomField($customFieldName)) {
+                    if ($isNewProduct || $this->isUpdateCustomField($customFieldName)) {
                         update_post_meta($firstVariationID, $customFieldName, maybe_unserialize($parentMeta[$customFieldName][0]));
                     }
                 }
@@ -321,6 +324,9 @@ final class XmlImportWooCommerceService {
      */
     public function maybeMakeProductSimple($product, $variationIDs) {
         $isNewProduct = get_post_meta($product->get_id(), self::FLAG_IS_NEW_PRODUCT, true);
+        if (empty($isNewProduct)) {
+	        $isNewProduct = FALSE;
+        }
         if ($this->isUpdateDataAllowed('is_update_product_type', $isNewProduct) && $this->getImport()->options['make_simple_product']) {
             do_action('wp_all_import_before_make_product_simple', $product->get_id(), $this->getImport()->id);
             $product_type_term = is_exists_term('simple', 'product_type', 0);
@@ -342,6 +348,12 @@ final class XmlImportWooCommerceService {
                 // Sync product data in case variations weren't created for this product.
                 $simpleProduct = new \WC_Product_Simple($product->get_id());
                 $simpleProduct->set_stock_status($parsedData['stock_status']);
+	            if (isset($parsedData['downloadable']) && ($isNewProduct || $this->isUpdateCustomField('_downloadable'))) {
+		            $simpleProduct->set_downloadable($parsedData['downloadable']);
+	            }
+	            if (isset($parsedData['virtual']) && ($isNewProduct || $this->isUpdateCustomField('_virtual'))) {
+		            $simpleProduct->set_virtual($parsedData['virtual']);
+	            }
                 $simpleProduct->save();
             }
             if (empty($price)) {

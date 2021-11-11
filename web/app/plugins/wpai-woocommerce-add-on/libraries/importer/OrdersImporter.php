@@ -78,14 +78,24 @@ class OrdersImporter extends Importer {
      */
     public function afterPostImport() {
         $new_status = str_replace("wc-", "", $this->importers['orderDetails']->getOrderData()['post_status']);
+	    $orderID = $this->getArticleData('ID');
         // Send new order notification.
         if (empty($this->getImport()->options['do_not_send_order_notifications'])) {
             /** @var WC_Order $order */
             // $order is retrieved fresh to ensure any changes due to the do_action calls above are included.
             $order = wc_get_order($this->getPid());
-            do_action('woocommerce_order_status_' . $new_status, $this->getPid(), $order);
-            do_action('woocommerce_order_status_pending_to_' . $new_status, $this->getPid(), $order);
-            do_action('woocommerce_before_resend_order_emails', $order);
+	        $previous_status = get_post_meta($order->get_id(), '_previous_status', true);
+	        $previous_status = str_replace("wc-", "", $previous_status);
+	        if ( $previous_status !== $new_status ) {
+		        do_action('woocommerce_order_status_' . $new_status, $this->getPid(), $order);
+		        if ( empty($previous_status) || $previous_status == 'pending' ) {
+			        do_action('woocommerce_order_status_pending_to_' . $new_status, $this->getPid(), $order);
+		        }
+	        }
+	        if (empty($orderID) && $new_status !== 'pending') {
+	            do_action('woocommerce_before_resend_order_emails', $order, 'new_order');
+	            WC()->mailer()->emails['WC_Email_New_Order']->trigger( $order->get_id(), $order, true );
+            }
         }
 	    $data_store = WC_Data_Store::load( 'customer-download' );
 	    $data_store->delete_by_order_id( $this->getPid() );

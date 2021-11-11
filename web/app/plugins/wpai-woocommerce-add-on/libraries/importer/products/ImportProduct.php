@@ -356,7 +356,7 @@ abstract class ImportProduct extends ImportProductBase {
                     $values = $attribute['value'];
                     if ( $isTaxonomy ) {
                         if ( isset( $attribute['value']) ) {
-                            $values = array_map('stripslashes', array_map( 'strip_tags', explode( $attributes_delimiter, $attribute['value'])));
+                            $values = array_map('stripslashes', explode( $attributes_delimiter, $attribute['value']));
                             // Remove empty items in the array.
                             $values = array_filter( $values, [$this, "filtering"] );
                             if (intval($attribute['is_create_taxonomy_terms'])){
@@ -424,10 +424,10 @@ abstract class ImportProduct extends ImportProductBase {
                         $isAddNew = TRUE;
                     }
                 }
-                $name = $attribute->is_taxonomy() ? $attributeName : $attribute->get_name();
+                $name = $attribute->is_taxonomy() ? urldecode_deep($attributeName) : $attribute->get_name();
                 if (!$this->getImportService()->isUpdateAttribute($name, $this->isNewProduct()) || $isAddNew) {
                     $productAttributes[$attributeName] = array(
-                        'name' => $attribute->is_taxonomy() ? urldecode_deep($attributeName) : $attribute->get_name(),
+                        'name' => $name,
                         'value' => $attribute->is_taxonomy() ? $attribute->get_options() : implode("|", $attribute->get_options()),
                         'is_visible' => $attribute->get_visible(),
                         'in_variation' => $attribute->get_variation(),

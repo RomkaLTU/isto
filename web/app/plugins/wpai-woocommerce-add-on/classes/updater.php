@@ -121,7 +121,7 @@ if( ! class_exists('PMWI_Updater') ) {
 
                     if( false === $version_info ) {
                         $version_info = $this->api_request( 'check_update', array( 'slug' => $this->slug ) );
-                        $transient_result = set_transient( $cache_key, $version_info, 3600 );
+                        $transient_result = set_transient( $cache_key, $version_info, 3600 * 24 );
 
                         $wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name = %s", $this->slug . '_' . $cache_key) );
                         $wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name = %s", $this->slug . '_timeout_' . $cache_key) );
@@ -210,7 +210,7 @@ if( ! class_exists('PMWI_Updater') ) {
 
                         $version_info = $this->api_request( 'plugin_latest_version', array( 'slug' => $this->slug ) );
 
-                        $transient_result = set_transient( $cache_key, $version_info, 3600 );
+                        $transient_result = set_transient( $cache_key, $version_info, 3600 * 24 );
 
                         $wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name = %s", $this->slug . '_' . $cache_key) );
                         $wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name = %s", $this->slug . '_timeout_' . $cache_key) );
@@ -335,7 +335,7 @@ if( ! class_exists('PMWI_Updater') ) {
 
                     if ( false !== $_data ) {
                         
-                        $transient_result = set_transient( $cache_key, $_data, 3600 );
+                        $transient_result = set_transient( $cache_key, $_data, 3600 * 24 );
 
                         $wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name = %s", $this->slug . '_' . $cache_key) );
                         $wpdb->query( $wpdb->prepare("DELETE FROM $wpdb->options WHERE option_name = %s", $this->slug . '_timeout_' . $cache_key) );

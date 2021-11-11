@@ -76,6 +76,7 @@ abstract class ImportVariationBase extends ImportProduct {
                 'is_variation' 	=> $attribute->get_variation(),
                 'is_taxonomy' 	=> $attribute->is_taxonomy()
             );
+	        $is_any_attribute = apply_filters('wp_all_import_variation_any_attribute', false, $this->getImport()->id);
             // Check is current attribute saved as taxonomy term.
             if ($attribute->is_taxonomy()) {
                 // Get attribute terms.
@@ -91,7 +92,6 @@ abstract class ImportVariationBase extends ImportProduct {
                     }
                     // Get first attribute term slug and assign it to variation.
                     if ($attribute->get_variation()) {
-	                    $is_any_attribute = apply_filters('wp_all_import_variation_any_attribute', false, $this->getImport()->id);
                     	if (count($terms) == 1 || !$is_any_attribute) {
 		                    $term = get_term($terms[0], $attribute->get_taxonomy());
 		                    if (empty($term) || is_wp_error($term)) {
@@ -106,7 +106,10 @@ abstract class ImportVariationBase extends ImportProduct {
             } else {
                 $parentAttributeValues = $attribute->get_options();
                 if ($attribute->get_variation()) {
-                    $parsedVariationAttributes[sanitize_title($attribute->get_name())] = $attribute->get_data()['value'];
+                	$attribute_value = $attribute->get_data()['value'];
+                	if (count(explode("|", $attribute_value)) === 1 || !$is_any_attribute) {
+		                $parsedVariationAttributes[sanitize_title($attribute->get_name())] = $attribute_value;
+	                }
                 }
             }
 
