@@ -50,7 +50,7 @@ do_action( 'woocommerce_before_shop_loop_item' );
     <div class="flex flex-col items-start text-14px">
         @if($manufacturer)
             <div>
-                {{ $manufacturer }}
+                {!! $manufacturer !!}
             </div>
         @endif
         <div>
