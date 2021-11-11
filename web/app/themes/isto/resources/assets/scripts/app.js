@@ -254,7 +254,7 @@ const parentCategories = document.querySelectorAll('.wc-block-product-categories
 
 const categoriesTitleEl = document.createElement('a');
 const blockProductCategories = document.querySelector('.wc-block-product-categories');
-categoriesTitleEl.setAttribute('href', '#');
+categoriesTitleEl.setAttribute('href', '/produktai');
 categoriesTitleEl.innerText = 'Produktų katalogas';
 categoriesTitleEl.classList.add('uppercase','text-13px','mb-2', 'inline-block');
 

@@ -7,3 +7,17 @@
         @apply text-right flex flex-row-reverse ml-1 text-14px;
     }
 }
+
+body:not(.term-ypatingi-pasiulymai) {
+    li:first-child {
+        display: none;
+    }
+}
+
+.term-ypatingi-pasiulymai {
+    .wc-block-product-categories-list {
+        li:not(:first-child) {
+            display: none;
+        }
+    }
+}
