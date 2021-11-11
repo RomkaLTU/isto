@@ -8,6 +8,8 @@ web/app/uploads/*
 
 !web/app/plugins/advanced-custom-fields-pro
 !web/app/plugins/woocommerce-ajax-filters
+!web/app/plugins/wp-all-import-pro
+!web/app/plugins/wpai-woocommerce-add-on
 
 # WordPress
 web/wp
