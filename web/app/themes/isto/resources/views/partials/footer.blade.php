@@ -2,7 +2,7 @@
     <div class="container">
         <div class="mt-6">
             @include('partials.social')
-            <div class="text-14px text-center prose max-w-full">
+            <div class="text-14px text-center max-w-full">
                 {!! nl2br($themeOptions['contacts_contacts']) !!}
             </div>
         </div>
@@ -14,9 +14,9 @@
                 ©ISTO {{ date('Y') }} | <a href="{{ get_privacy_policy_url() }}">{{ __('Privatumo politika', 'isto') }}</a>
             </div>
             <div>
-                <a href="#" class="flex-1 max-w-[140px] flex items-center space-x-1 text-13px">
+                <a href="#" class="flex-1 max-w-[140px] flex items-center space-x-1 text-13px with-arrow">
                     <span>{{ __('Architektų zona', 'isto') }}</span>
-                    <svg viewBox="0 0 24 24" width="24" height="19" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0Z"/><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4Z"/></svg>
+                    <img src="@asset('images/arrow-right-1.svg')" class="w-5 arrow-right" alt="">
                 </a>
             </div>
         </div>

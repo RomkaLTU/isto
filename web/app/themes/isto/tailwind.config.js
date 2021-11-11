@@ -49,6 +49,9 @@ module.exports = {
       maxWidth: {
         '760px': '760px',
       },
+      scale: {
+        '120': '1.2',
+      }
     },
   },
   variants: {},

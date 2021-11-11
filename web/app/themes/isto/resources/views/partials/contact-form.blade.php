@@ -55,7 +55,7 @@ $productId = isset($product) ? $product->get_id() : false;
                                         x-model="data.cities"
                                         value="Vilnius"
                                         type="checkbox"
-                                        class="focus:ring-gray-2 h-4 w-4 text-gray-2 border-gray-2 rounded-none">
+                                        class="focus:ring-gray-2 h-4 w-4 text-black border-gray-2 rounded-none">
                                 </div>
                                 <div class="ml-3 text-14px">
                                     <label for="city_vilnius" class="font-medium text-gray-2 cursor-pointer uppercase">{{ __('Vilnius', 'isto') }}</label>
@@ -71,7 +71,7 @@ $productId = isset($product) ? $product->get_id() : false;
                                         x-model="data.cities"
                                         value="Klaipėda"
                                         type="checkbox"
-                                        class="focus:ring-gray-2 h-4 w-4 text-gray-2 border-gray-2 rounded-none">
+                                        class="focus:ring-gray-2 h-4 w-4 text-black border-gray-2 rounded-none">
                                 </div>
                                 <div class="ml-3 text-14px">
                                     <label for="city_klaipeda" class="font-medium text-gray-2 cursor-pointer uppercase">{{ __('Klaipėda', 'isto') }}</label>
@@ -88,7 +88,7 @@ $productId = isset($product) ? $product->get_id() : false;
                                         name="privacy_policy"
                                         x-model="data.privacy_policy"
                                         type="checkbox"
-                                        class="focus:ring-gray-2 h-4 w-4 text-gray-2 border-gray-2 rounded-none">
+                                        class="focus:ring-gray-2 h-4 w-4 text-black border-gray-2 rounded-none">
                                 </div>
                                 <div class="ml-3 text-14px">
                                     <a href="{{ get_privacy_policy_url() }}" target="_blank" class="font-medium text-gray-2 cursor-pointer uppercase">{{ __('Sutinku su privatumo politika*', 'isto') }}</a>
@@ -108,7 +108,7 @@ $productId = isset($product) ? $product->get_id() : false;
                         name="message"
                         x-model="data.message"
                         id="message"
-                        class="bg-transparent block w-full outline-none focus:ring-0 sm:text-sm border border-gray-2 h-[95px] p-4"></textarea>
+                        class="bg-transparent block w-full text-black outline-none focus:ring-0 sm:text-sm border border-gray-2 h-[95px] p-4"></textarea>
                 </label>
             </div>
             <div>

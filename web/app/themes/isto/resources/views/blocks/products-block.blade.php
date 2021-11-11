@@ -21,21 +21,27 @@
         <div class="container">
             @include('blocks.partials.title')
 
-            <div class="grid lg:grid-cols-2 gap-16 lg:h-[574px]">
-                @foreach ($blocks as $block)
-                    @php
-                        $image = wp_get_attachment_image_url( $block['image'], 'xlarge' );
-                        $link = $block['link'];
-                    @endphp
-                    <a href="{{ $link['url'] }}" class="group no-hover block bg-cover bg-center"
-                        style="background-image: url({{ $image }})">
-                        @if(!empty($link['title']))
-                            <h3 class="bg-white transition-opacity opacity-80 group-hover:opacity-100 w-[255px] h-[238px] text-center text-22px leading-tight flex items-center justify-center p-14">
-                                {{ $link['title'] }}
-                            </h3>
-                        @endif
-                    </a>
-                @endforeach
+            <div class="swiper swiper-container-products overflow-hidden relative h-[544px]">
+                <div class="swiper-wrapper">
+                    @foreach ($blocks as $block)
+                        @php
+                            $image = wp_get_attachment_image_url( $block['image'], 'xlarge' );
+                            $link = $block['link'];
+                        @endphp
+                        <div class="swiper-slide">
+                            <a href="{{ $link['url'] }}" class="group no-hover block bg-cover overflow-hidden bg-center h-full">
+                                <img src="{{ $image }}" class="object-cover transition-transform duration-700 group-hover:scale-105 h-full w-full" alt="">
+                                @if(!empty($link['title']))
+                                    <h3 class="absolute top-0 left-0 bg-white transition-opacity opacity-80 w-[255px] h-[238px] text-center text-22px leading-tight flex items-center justify-center p-14">
+                                        {{ $link['title'] }}
+                                    </h3>
+                                @endif
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
 
             @include('blocks.partials.more-link', ['title' => __('Visi produktai', 'isto'), 'link' => \App\getPermalinkByTemplate('product-categories') ])
