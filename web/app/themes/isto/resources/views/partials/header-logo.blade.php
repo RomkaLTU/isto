@@ -10,7 +10,7 @@ $artableLink = get_field('global', 'options')['artable_link'];
 
     @if($artableLogoId)
         <a href="{{ $artableLink }}" class="border-l pl-3 no-hover" target="_blank">
-            <img src="{{ wp_get_attachment_image_url($artableLogoId, 'xlarge') }}" alt="">
+            <img class="opacity-10 transition-opacity duration-500 hover:opacity-100" src="{{ wp_get_attachment_image_url($artableLogoId, 'xlarge') }}" alt="">
         </a>
     @endif
 </div>

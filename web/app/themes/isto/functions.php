@@ -197,3 +197,9 @@ add_action('manage_inquiries_posts_custom_column' , function($column, $post_id) 
 			break;
 	}
 }, 10, 2);
+
+add_filter('woocommerce_breadcrumb_defaults', function($defaults) {
+	$defaults['home'] = __('Pradinis', 'isto');
+
+	return $defaults;
+});
