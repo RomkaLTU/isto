@@ -58,7 +58,7 @@ if ( post_password_required() ) {
 
 	<div class="mb-4 lg:mb-50px">
 		@if(!empty($product->get_gallery_image_ids()))
-			<div class="swiper swiper-container-hero overflow-hidden relative h-[250px] lg:h-[500px]">
+			<div class="swiper swiper-container-hero overflow-hidden relative h-[250px] lg:h-[600px]">
 				<div class="swiper-wrapper">
 					@foreach($product->get_gallery_image_ids() as $imageId)
 						@php
