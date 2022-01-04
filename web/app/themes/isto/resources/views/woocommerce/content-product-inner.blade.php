@@ -58,7 +58,10 @@ do_action( 'woocommerce_before_shop_loop_item' );
             <img src="@asset('images/arrow-right-1.svg')" class="arrow-right" alt="">
         </div>
     </div>
-	@if($product->is_featured())
+	@if(in_array('ypatingi-pasiulymai', wp_list_pluck(get_terms([
+				'taxonomy' => 'product_cat',
+				'term_taxonomy_id' => $product->get_category_ids()
+		]), 'slug')))
 		<div class="product-price text-right flex items-end flex-row-reverse">
 			{!! $product->get_price_html() !!}
 		</div>

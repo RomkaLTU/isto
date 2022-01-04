@@ -131,7 +131,10 @@ if ( post_password_required() ) {
 		</div>
 	</div>
 
-	@if($product->is_featured())
+	@if(in_array('ypatingi-pasiulymai', wp_list_pluck(get_terms([
+				'taxonomy' => 'product_cat',
+				'term_taxonomy_id' => $product->get_category_ids()
+		]), 'slug')))
 		<div class="inner-price text-center flex items-end flex-row-reverse justify-center">
 			{!! $product->get_price_html() !!}
 		</div>
