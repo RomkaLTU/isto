@@ -16,7 +16,7 @@
                             $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
                             $image = wp_get_attachment_image_url($thumbnail_id, 'large');
                         ?>
-                        <a href="{{ get_term_link($category) }}" class="group with-arrow block relative bg-white p-8">
+                        <a href="{{ get_term_link($category) }}" class="{{ $category->slug === 'ypatingi-pasiulymai' ? 'hidden' : '' }} group with-arrow block relative bg-white p-8">
                             <div class="h-[224px]">
                                 <img class="object-cover transition-all group-hover:scale-110 max-w-[180px] h-[90%] mx-auto" src="{{ $image }}" alt="">
                             </div>
