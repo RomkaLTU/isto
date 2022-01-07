@@ -24,7 +24,7 @@
         <div class="relative max-w-[765px] mx-auto mt-6 lg:mt-14">
             <div class="anime-line-down absolute left-0 top-0 w-1px ml-1px lg:ml-0 bg-black h-0"></div>
             <div class="overflow-hidden">
-                <div class="anime-fade-from-left text-center text-14px pl-4 lg:pl-8 opacity-0">
+                <div class="anime-fade-from-left text-14px pl-4 lg:pl-8 opacity-0">
                     {!! $text !!}
                 </div>
             </div>

@@ -28,7 +28,7 @@
             "key": "field_6145a180e3a85",
             "label": "Text",
             "name": "text",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,10 +38,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": "br"
+            "tabs": "visual",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_6145a19ee3a86",
@@ -85,5 +85,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631953320
+    "show_in_rest": 0,
+    "modified": 1641569566
 }

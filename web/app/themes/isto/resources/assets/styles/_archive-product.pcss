@@ -3,7 +3,7 @@
 }
 
 .products {
-    @apply grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-30px;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-30px;
 }
 
 .woocommerce-loop-product__link.group .attachment-woocommerce_thumbnail {
@@ -14,4 +14,8 @@
     .attachment-woocommerce_thumbnail {
         @apply scale-105;
     }
+}
+
+.woocommerce-loop-product__link.group .woocommerce-placeholder.wp-post-image {
+    @apply w-full;
 }

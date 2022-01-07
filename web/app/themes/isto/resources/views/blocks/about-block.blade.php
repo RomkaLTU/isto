@@ -20,7 +20,7 @@
 <div class="block-about {{ $verticalSpace }}">
     <div class="container">
         @if(!empty($title))
-            <h2 class="text-35px text-center mb-8">
+            <h2 class="!text-35px text-center mb-8">
                 {{ $title }}
             </h2>
         @endif
