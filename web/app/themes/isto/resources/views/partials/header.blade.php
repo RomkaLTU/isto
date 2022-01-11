@@ -19,7 +19,9 @@
               </g>
             </svg>
           </a>
-          <?php echo do_shortcode('[weglot_switcher]') ?>
+          @if(shortcode_exists('weglot_switcher'))
+            <?php echo do_shortcode('[weglot_switcher]') ?>
+          @endif
         </div>
       </div>
       <div class="lg:hidden mt-[7px]">
