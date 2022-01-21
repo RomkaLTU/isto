@@ -51,10 +51,10 @@ $productId = isset($product) ? $product->get_id() : false;
                                     <input
                                         id="city_vilnius"
                                         aria-describedby="city-vilnius"
-                                        name="cities[]"
-                                        x-model="data.cities"
+                                        name="city"
+                                        x-model="data.city"
                                         value="Vilnius"
-                                        type="checkbox"
+                                        type="radio"
                                         class="focus:ring-gray-2 h-4 w-4 text-black border-gray-2 rounded-none">
                                 </div>
                                 <div class="ml-3 text-14px">
@@ -67,10 +67,10 @@ $productId = isset($product) ? $product->get_id() : false;
                                     <input
                                         id="city_klaipeda"
                                         aria-describedby="city-klaipeda"
-                                        name="cities[]"
-                                        x-model="data.cities"
+                                        name="city"
+                                        x-model="data.city"
                                         value="Klaipėda"
-                                        type="checkbox"
+                                        type="radio"
                                         class="focus:ring-gray-2 h-4 w-4 text-black border-gray-2 rounded-none">
                                 </div>
                                 <div class="ml-3 text-14px">
@@ -124,7 +124,7 @@ $productId = isset($product) ? $product->get_id() : false;
                 <div x-show="data.errors" class="text-red-500 text-14px my-2">
                     {{ __('Klaida. Pasitikrinkite ar gerai užpildėte visus laukus.', 'isto') }}
                 </div>
-                <div x-show="data.sent" class="text-green-500 text-14px my-2">
+                <div x-show="data.sent" class="text-black text-14px my-2">
                     {{ __('Laiškas išsiųstas, netrukus susisieksime.', 'isto') }}
                 </div>
             </div>

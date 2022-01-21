@@ -92,10 +92,21 @@ class ContactUsController extends WP_REST_Controller
 
 		add_filter( 'wp_mail_content_type', fn() => 'text/html' );
 
+		$additionalEmail = '';
+
+		if ($data['city'] === 'Vilnius') {
+			$additionalEmail = 'vilnius@isto.lt';
+		} elseif ($data['city'] === 'Klaipėda') {
+			$additionalEmail = 'klaipeda@isto.lt';
+		}
+
 		$email = wp_mail(
 			get_option('admin_email'),
 			$emailTitle . get_option('blogname'),
-			$body
+			$body,
+			[
+				'Cc: ' . $additionalEmail,
+			]
 		);
 
 		remove_filter( 'wp_mail_content_type', fn() => 'text/html' );
@@ -115,7 +126,7 @@ class ContactUsController extends WP_REST_Controller
 		$referer = Arr::get($data, 'referer');
 		$email = Arr::get($data, 'email');
 		$phone = Arr::get($data, 'phone');
-		$cities = Arr::get($data, 'cities');
+		$city = Arr::get($data, 'city');
 		$message = Arr::get($data, 'message');
 		$productId = Arr::get($data, 'productId');
 		$privacy_policy = Arr::get($data, 'privacy_policy');
@@ -124,7 +135,7 @@ class ContactUsController extends WP_REST_Controller
 			!$name ||
 		    !$email ||
 		    !$phone ||
-		    empty($cities) ||
+		    !$city ||
 		    !$message ||
 		    !$privacy_policy
 		) {
@@ -138,7 +149,7 @@ class ContactUsController extends WP_REST_Controller
 			'referer' => $referer,
 			'email' => $email,
 			'phone' => $phone,
-			'cities' => $cities,
+			'city' => $city,
 			'message' => $message,
 			'product_id' => $productId,
 			'privacy_policy' => $privacy_policy,
@@ -159,7 +170,7 @@ class ContactUsController extends WP_REST_Controller
 		update_field('products', $products, $postId);
 		update_field('type', $data['type'], $postId);
 		update_field('message', $data['message'], $postId);
-		update_field('cities', $data['cities'], $postId);
+		update_field('cities', [$data['city']], $postId);
 		update_field('phone', $data['phone'], $postId);
 		update_field('email', $data['email'], $postId);
 		update_field('email', $data['email'], $postId);

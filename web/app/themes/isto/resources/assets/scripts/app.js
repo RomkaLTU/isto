@@ -176,7 +176,7 @@ document.addEventListener('alpine:init', () => {
             email: null,
             phone: null,
             message: null,
-            cities: [],
+            city: null,
             privacy_policy: false,
             productId: null,
             errors: false,
@@ -205,7 +205,7 @@ document.addEventListener('alpine:init', () => {
                 !this.data.email ||
                 !this.data.phone ||
                 !this.data.message ||
-                !this.data.cities.length ||
+                !this.data.city ||
                 !this.data.privacy_policy
             ) {
                 this.data.errors = true;
@@ -228,7 +228,7 @@ document.addEventListener('alpine:init', () => {
             this.data.email = null;
             this.data.phone = null;
             this.data.message = null;
-            this.data.cities = [];
+            this.data.city = null;
             this.data.privacy_policy = false;
         },
 

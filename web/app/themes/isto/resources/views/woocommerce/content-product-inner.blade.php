@@ -11,8 +11,8 @@ $manufacturer = $product->get_attribute('pa_gamintojas');
 do_action( 'woocommerce_before_shop_loop_item' );
 ?>
 
-<div class="overflow-hidden mb-6">
-	<div>
+<div class="overflow-hidden mb-6 h-[290px]">
+	<div class="h-full">
 		<?php
 		/**
 		 * Hook: woocommerce_before_shop_loop_item_title.

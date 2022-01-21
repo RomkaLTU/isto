@@ -198,6 +198,26 @@ add_action('manage_inquiries_posts_custom_column' , function($column, $post_id) 
 	}
 }, 10, 2);
 
+add_filter( 'woocommerce_get_related_product_cat_terms', function($terms, $product_id) {
+	$prodterms = get_the_terms($product_id, 'product_cat');
+
+	if (count($prodterms) === 1) {
+		return $terms;
+	}
+
+	$subcategories = [];
+
+	foreach ($prodterms as $k => $prodterm) {
+		if ($prodterm->parent === 0) {
+			unset($prodterms[$k]);
+		} else {
+			$subcategories[] = $prodterm->term_id;
+		}
+	}
+
+	return $subcategories;
+}, 20, 2 );
+
 add_filter('woocommerce_breadcrumb_defaults', function($defaults) {
 	$defaults['home'] = __('Pradinis', 'isto');
 
