@@ -16,8 +16,8 @@
                 "id": ""
             },
             "choices": {
-                "kaunas": "Kauno salonas",
-                "klaipeda": "Klaipėdos salonas"
+                "Klaipėda": "Klaipėdos salonas",
+                "Vilnius": "Vilniaus salonas"
             },
             "default_value": [],
             "allow_null": 1,
@@ -26,6 +26,27 @@
             "ajax": 0,
             "return_format": "array",
             "placeholder": ""
+        },
+        {
+            "key": "field_61ea62232ffe6",
+            "label": "Stock",
+            "name": "stock_qty",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         }
     ],
     "location": [
@@ -45,5 +66,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633548295
+    "show_in_rest": 0,
+    "modified": 1642750535
 }

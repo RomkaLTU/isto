@@ -25,12 +25,12 @@ $productLocations = get_field('product_location');
 $locations = [];
 
 foreach ($productLocations as $productLocation) {
-	switch ($productLocation['value']) {
-		case 'kaunas':
-			$locations[] = __('Kauno salonas', 'isto');
-			break;
-		case 'klaipeda':
+	switch (strtolower($productLocation['value'])) {
+		case 'klaipėda':
 			$locations[] = __('Klaipėdos salonas', 'isto');
+			break;
+		case 'vilnius':
+			$locations[] = __('Vilniaus salonas', 'isto');
 			break;
 	}
 }
@@ -159,7 +159,7 @@ if ( post_password_required() ) {
 			<div>{{ __('Dizaineris', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_dizaineris'), 'pa_dizaineris') }}">{!! $product->get_attribute('pa_dizaineris') !!}</a></div>
 			<div>{{ __('Gamintojas', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_gamintojas'), 'pa_gamintojas') }}">{!! $product->get_attribute('pa_gamintojas') !!}</a></div>
 			@if($product->is_featured())
-				@if(!empty($stock_quantity = $product->get_stock_quantity()))
+				@if(!empty($stock_quantity = get_field('stock_qty')))
 					<div>{{ __('Liko vienetu', 'isto') }}: {{ $stock_quantity }}</div>
 				@endif
 				@if($productLocations)
