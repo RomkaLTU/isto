@@ -15,7 +15,7 @@
             </div>
             <div>
                 <a href="#" class="flex-1 max-w-[140px] flex items-center space-x-1 text-13px with-arrow">
-                    <span>{{ __('Architektų zona', 'isto') }}</span>
+                    <span>{{ __('Į VIRŠŲ', 'isto') }}</span>
                     <img src="@asset('images/arrow-right-1.svg')" class="w-5 arrow-right" alt="">
                 </a>
             </div>

@@ -81,6 +81,25 @@
                         "id": ""
                     },
                     "return_format": "array"
+                },
+                {
+                    "key": "field_61e9fb87a57c9",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "If no link provided.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -102,5 +121,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631978637
+    "show_in_rest": 0,
+    "modified": 1642724255
 }

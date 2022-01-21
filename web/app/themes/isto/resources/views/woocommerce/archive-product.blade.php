@@ -64,7 +64,7 @@ the readme will list any important changes.
       </div>
       <div class="fixed left-0 bottom-0 w-full bg-gray-1 flex justify-center space-x-3 z-50 pt-3 pb-10 px-8">
         <button class="bapf_button bapf_reset flex-1 border border-gray-2 uppercase text-14px px-3 py-2 bg-gray-1">{{ __('Panaikinti filtrą', 'isto') }}</button>
-        <button @click.prevent="show = !show" class="flex-1 border border-black bg-black text-white uppercase text-14px px-3 py-2">{{ __('Uždaryti', 'isto') }}</button>
+        <button @click.prevent="show = !show" class="flex-1 border border-black bg-black text-white uppercase text-14px px-3 py-2">{{ __('Rodyti', 'isto') }}</button>
       </div>
     </div>
   </div>

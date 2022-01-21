@@ -205,5 +205,5 @@ add_filter('woocommerce_breadcrumb_defaults', function($defaults) {
 });
 
 add_filter( 'loop_shop_per_page', function() {
-	return 200;
+	return 18;
 }, 20 );

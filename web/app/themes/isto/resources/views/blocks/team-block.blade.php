@@ -29,10 +29,19 @@
 
         <div class="grid lg:grid-cols-2 gap-8 lg:mt-16 lg:px-30px">
             @foreach($items as $item)
-                <a href="{{ $item['link']['url'] }}" class="block no-hover">
-                    <img src="{{ wp_get_attachment_image_url($item['image'], 'xlarge') }}" class="object-cover relative z-10 w-full h-[320px] mb-6" alt="">
-                    <h3 class="text-22px uppercase mt-6">{{ $item['link']['title'] }}</h3>
-                </a>
+                @if(!empty($item['link']))
+                    <a href="{{ $item['link']['url'] }}" class="block no-hover">
+                        <img src="{{ wp_get_attachment_image_url($item['image'], 'xlarge') }}" class="object-cover relative z-10 w-full h-[320px] mb-6" alt="">
+                        <h3 class="text-22px uppercase mt-6">{{ $item['link']['title'] }}</h3>
+                    </a>
+                @else
+                    <div class="block">
+                        <img src="{{ wp_get_attachment_image_url($item['image'], 'xlarge') }}" class="object-cover relative z-10 w-full h-[320px] mb-6" alt="">
+                        @if(!empty($item['title']))
+                            <h3 class="text-22px uppercase mt-6">{{ $item['title'] }}</h3>
+                        @endif
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>
