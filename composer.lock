@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9e47e08a597fc40c0ab6e5ce33baeab",
+    "content-hash": "c08e852b2c9b597cde3448e2783be902",
     "packages": [
         {
             "name": "composer/installers",
@@ -1045,6 +1045,24 @@
             "time": "2021-12-12T23:22:04+00:00"
         },
         {
+            "name": "wpackagist-plugin/cookie-law-info",
+            "version": "2.0.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cookie-law-info/",
+                "reference": "tags/2.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cookie-law-info.2.0.8.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cookie-law-info/"
+        },
+        {
             "name": "wpackagist-plugin/disable-comments",
             "version": "2.3.2",
             "source": {
@@ -1079,6 +1097,42 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/duplicate-post/"
+        },
+        {
+            "name": "wpackagist-plugin/ga-google-analytics",
+            "version": 20210719,
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/ga-google-analytics/",
+                "reference": "tags/20210719"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/ga-google-analytics.20210719.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ga-google-analytics/"
+        },
+        {
+            "name": "wpackagist-plugin/redirection",
+            "version": "5.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/redirection/",
+                "reference": "tags/5.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/redirection.5.2.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
             "name": "wpackagist-plugin/simple-custom-post-order",
