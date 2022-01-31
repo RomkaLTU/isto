@@ -34,3 +34,5 @@ wp-cli.local.yml
 docker/data/*
 /web/app/languages/plugins/*
 /web/app/languages/wpml/*
+
+web/app/isto_uploads.zip

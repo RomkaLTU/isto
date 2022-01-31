@@ -92,6 +92,8 @@ h4 {
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
     pointer-events: auto !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
 }
 
 .swiper-button-next {
@@ -139,11 +141,11 @@ h4 {
     }
 }
 
-a {
+a:not(.cli-settings-mobile) {
     position: relative;
 }
 
-a:before {
+a:not(.cli-settings-mobile):before {
     content: '';
     display: block;
     position: absolute;
@@ -155,7 +157,7 @@ a:before {
     transition: 0.2s width;
 }
 
-a:not(.no-hover):not(.with-arrow):not(.swiper-slide):not(.wg-li a):hover:before {
+a:not(.cli-settings-mobile):not(.no-hover):not(.with-arrow):not(.swiper-slide):not(.wg-li a):hover:before {
     width: 100%;
 }
 

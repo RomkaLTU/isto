@@ -65,6 +65,7 @@ new SwiperCore('.swiper-container-hero', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    loop: true,
     slidesPerView: 1,
     spaceBetween: 8,
     on: {

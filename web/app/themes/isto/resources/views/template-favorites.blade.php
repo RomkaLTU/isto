@@ -23,7 +23,7 @@
                     </div>
                 </div>
             @else
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
                     @foreach($product_ids as $productId)
 				        <?php
 				        $post = get_post($productId);
