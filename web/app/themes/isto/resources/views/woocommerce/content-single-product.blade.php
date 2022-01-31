@@ -158,7 +158,10 @@ if ( post_password_required() ) {
 		<div class="text-14px text-center">
 			<div>{{ __('Dizaineris', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_dizaineris'), 'pa_dizaineris') }}">{!! $product->get_attribute('pa_dizaineris') !!}</a></div>
 			<div>{{ __('Gamintojas', 'isto') }}: <a href="{{ get_term_link($product->get_attribute('pa_gamintojas'), 'pa_gamintojas') }}">{!! $product->get_attribute('pa_gamintojas') !!}</a></div>
-			@if($product->is_featured())
+			@if(in_array('ypatingi-pasiulymai', wp_list_pluck(get_terms([
+				'taxonomy' => 'product_cat',
+				'term_taxonomy_id' => $product->get_category_ids()
+		]), 'slug')))
 				@if(!empty($stock_quantity = get_field('stock_qty')))
 					<div>{{ __('Liko vienetu', 'isto') }}: {{ $stock_quantity }}</div>
 				@endif
