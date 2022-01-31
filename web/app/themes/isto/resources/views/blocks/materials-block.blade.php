@@ -28,7 +28,7 @@
                             $bgImage = wp_get_attachment_image_url($slide['image'], 'xlarge');
                             $content = $slide['content'];
                         @endphp
-                        <a href="#" data-swiper-slide="{{ $loop->iteration - 1 }}" class="swiper-slide group block bg-no-repeat bg-cover bg-center"
+                        <div data-swiper-slide="{{ $loop->iteration - 1 }}" class="swiper-slide group block bg-no-repeat bg-cover bg-center"
                            style="background-image: url({{ $bgImage }})">
                             <div class="absolute bottom-0 left-0 right-0 mx-auto w-full max-w-[940px] opacity-90 lg:text-opacity-100 bg-white p-6 lg:p-8 -mb-20">
                                 <h4 class="uppercase text-22px mb-4">{{ $content['title'] }}</h4>
@@ -36,7 +36,7 @@
                                     {!! $content['text'] !!}
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     @endforeach
                 </div>
                 <div class="swiper-button-next"></div>
