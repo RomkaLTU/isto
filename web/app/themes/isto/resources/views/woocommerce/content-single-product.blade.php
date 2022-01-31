@@ -163,7 +163,7 @@ if ( post_password_required() ) {
 				'term_taxonomy_id' => $product->get_category_ids()
 		]), 'slug')))
 				@if(!empty($stock_quantity = get_field('stock_qty')))
-					<div>{{ __('Liko vienetu', 'isto') }}: {{ $stock_quantity }}</div>
+					<div>{{ __('Liko vienetų', 'isto') }}: {{ $stock_quantity }}</div>
 				@endif
 				@if($productLocations)
 					<div>
