@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div x-cloak="showMobileMenu" x-show="showMobileMenu" class="lg:hidden h-screen fixed left-0 top-0 w-full z-50 bg-gray-1">
+  <div x-cloak="showMobileMenu" x-show="showMobileMenu" class="inner-scrol lg:hidden h-screen fixed left-0 top-0 w-full z-50 bg-gray-1">
     <div class="flex justify-between px-30px pt-10">
       @include('partials.header-logo')
       <button @click="showMobileMenu = false" type="button" class="button">
@@ -68,7 +68,7 @@
       </div>
     </div>
     @if (has_nav_menu('primary_navigation'))
-      <div class="p-8 py-10 uppercase text-18px">
+      <div class="inner-scroll h-[400px] p-8 py-10 uppercase text-18px">
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav-primary-mobile', 'echo' => false]) !!}
       </div>
     @endif
