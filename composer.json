@@ -50,7 +50,8 @@
     "wpackagist-plugin/weglot": "^3.4",
     "wpackagist-plugin/cookie-law-info": "^2.0",
     "wpackagist-plugin/redirection": "^5.2",
-    "wpackagist-plugin/ga-google-analytics": "20220124"
+    "wpackagist-plugin/ga-google-analytics": "20220124",
+    "wpackagist-plugin/wp-mail-smtp": "^3.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
