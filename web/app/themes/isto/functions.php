@@ -135,7 +135,7 @@ add_action('woocommerce_product_query', function ($query) {
                 'operator' => 'NOT IN',
             );
 
-            $query->set('order', 'desc');
+            $query->set('order', 'asc');
             $query->set('tax_query', $tax_query);
         }
     }
@@ -143,7 +143,7 @@ add_action('woocommerce_product_query', function ($query) {
 
 add_action('pre_get_posts', function ($query) {
     if (is_home() && $query->is_main_query()) {
-        $query->set('order', 'desc');
+        $query->set('order', 'asc');
         $stickies = get_option("sticky_posts");
         $query->set('post__not_in', $stickies);
     }
