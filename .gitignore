@@ -13,6 +13,8 @@ web/app/uploads/*
 !web/app/plugins/wpml-string-translation
 !web/app/plugins/sitepress-multilingual-cms
 !web/app/plugins/woocommerce-multilingual
+!web/app/plugins/acfml
+!web/app/plugins/wp-seo-multilingual
 
 # WordPress
 web/wp
