@@ -2,8 +2,8 @@
     <div class="container">
         <div class="mt-6">
             @include('partials.social')
-            <div class="text-14px text-center max-w-full">
-                {!! nl2br($themeOptions['contacts_contacts']) !!}
+            <div class="footer-contects text-14px text-center max-w-full">
+                {!! \Illuminate\Support\Arr::get(get_field('contacts', 'options'), 'contacts') !!}
             </div>
         </div>
         <div class="w-full flex items-center lg:items-end justify-between mt-4 lg:mt-0">

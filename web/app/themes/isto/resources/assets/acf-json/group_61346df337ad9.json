@@ -92,7 +92,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 3,
+            "wpml_cf_preferences": 2,
             "placement": "top",
             "endpoint": 0
         },
@@ -109,7 +109,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 3,
+            "wpml_cf_preferences": 2,
             "layout": "block",
             "sub_fields": [
                 {
@@ -203,7 +203,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 3,
+                    "wpml_cf_preferences": 2,
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "full",
@@ -231,5 +231,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1648634118
+    "modified": 1648634565
 }
