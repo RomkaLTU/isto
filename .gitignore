@@ -10,6 +10,9 @@ web/app/uploads/*
 !web/app/plugins/woocommerce-ajax-filters
 !web/app/plugins/wp-all-import-pro
 !web/app/plugins/wpai-woocommerce-add-on
+!web/app/plugins/wpml-string-translation
+!web/app/plugins/sitepress-multilingual-cms
+!web/app/plugins/woocommerce-multilingual
 
 # WordPress
 web/wp

@@ -47,7 +47,6 @@
     "ext-json": "*",
     "wpackagist-plugin/duplicate-post": "^4.1",
     "wpackagist-plugin/wordpress-seo": "^18.4.1",
-    "wpackagist-plugin/weglot": "^3.4",
     "wpackagist-plugin/cookie-law-info": "^2.0",
     "wpackagist-plugin/redirection": "^5.2",
     "wpackagist-plugin/ga-google-analytics": "20220124",
