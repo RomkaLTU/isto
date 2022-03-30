@@ -1,3 +1,7 @@
+@php
+  $currentLang = apply_filters( 'wpml_current_language', NULL );
+@endphp
+
 <div class="absolute hidden pt-5"></div>
 <header class="header mb-8 lg:mb-0" x-data="{showMobileMenu: false}">
   <div class="container py-6">
@@ -11,7 +15,8 @@
           @endif
         </div>
         <div class="flex items-center">
-          <a href="{{ \App\getPermalinkByTemplate('favorites') }}">
+          @if($currentLang === 'lt')
+            <a href="{{ \App\getPermalinkByTemplate('favorites') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 32.787 28.861">
               <g id="Like_icon" data-name="Like icon" transform="translate(0.5 0.5)">
                 <path x-cloak="!$store.favs.items.length" x-show="!$store.favs.items.length" id="Path_163" data-name="Path 163" d="M31.787-1.749a9.549,9.549,0,0,0-2.7-6.559,8.271,8.271,0,0,0-6.239-2.82A8.288,8.288,0,0,0,15.894-7.39,8.288,8.288,0,0,0,8.94-11.129,8.271,8.271,0,0,0,2.7-8.309,9.549,9.549,0,0,0,0-1.749v.19a.883.883,0,0,0,.031.19.883.883,0,0,1,.031.19A14.477,14.477,0,0,0,1.055,3.8,16.224,16.224,0,0,0,3.322,7.883a23.028,23.028,0,0,0,3.135,3.264,31.182,31.182,0,0,0,3.259,2.5,26.911,26.911,0,0,0,3.042,1.711q1.583.76,2.142.982t.869.349q.31-.127.869-.317a23.384,23.384,0,0,0,2.173-.982,31.877,31.877,0,0,0,3.1-1.743,33.624,33.624,0,0,0,3.322-2.472A20.291,20.291,0,0,0,28.4,7.915,17.6,17.6,0,0,0,30.7,3.8a14.039,14.039,0,0,0,1.024-4.975.883.883,0,0,1,.031-.19.883.883,0,0,0,.031-.19v-.19Z" transform="translate(0 11.129)" fill="none" stroke="#000" stroke-width="1"/>
@@ -19,6 +24,7 @@
               </g>
             </svg>
           </a>
+          @endif
           <div>
             @php(do_action('wpml_add_language_selector'))
           </div>
@@ -54,7 +60,8 @@
         @include('partials.search-field')
       </div>
       <div class="flex items-center">
-        <a href="{{ \App\getPermalinkByTemplate('favorites') }}">
+        @if($currentLang === 'lt')
+          <a href="{{ \App\getPermalinkByTemplate('favorites') }}">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 32.787 28.861">
             <g id="Like_icon" data-name="Like icon" transform="translate(0.5 0.5)">
               <path x-cloak="!$store.favs.items.length" x-show="!$store.favs.items.length" id="Path_163" data-name="Path 163" d="M31.787-1.749a9.549,9.549,0,0,0-2.7-6.559,8.271,8.271,0,0,0-6.239-2.82A8.288,8.288,0,0,0,15.894-7.39,8.288,8.288,0,0,0,8.94-11.129,8.271,8.271,0,0,0,2.7-8.309,9.549,9.549,0,0,0,0-1.749v.19a.883.883,0,0,0,.031.19.883.883,0,0,1,.031.19A14.477,14.477,0,0,0,1.055,3.8,16.224,16.224,0,0,0,3.322,7.883a23.028,23.028,0,0,0,3.135,3.264,31.182,31.182,0,0,0,3.259,2.5,26.911,26.911,0,0,0,3.042,1.711q1.583.76,2.142.982t.869.349q.31-.127.869-.317a23.384,23.384,0,0,0,2.173-.982,31.877,31.877,0,0,0,3.1-1.743,33.624,33.624,0,0,0,3.322-2.472A20.291,20.291,0,0,0,28.4,7.915,17.6,17.6,0,0,0,30.7,3.8a14.039,14.039,0,0,0,1.024-4.975.883.883,0,0,1,.031-.19.883.883,0,0,0,.031-.19v-.19Z" transform="translate(0 11.129)" fill="none" stroke="#000" stroke-width="1"/>
@@ -62,6 +69,7 @@
             </g>
           </svg>
         </a>
+        @endif
         <div>
           @php(do_action('wpml_add_language_selector'))
         </div>
