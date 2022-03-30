@@ -1,120 +1,121 @@
 .header {
-    .nav-primary {
-        @apply flex items-center space-x-5 uppercase text-14px;
+  .nav-primary {
+    line-height: 1.86;
+    @apply flex items-center space-x-5 uppercase text-14px;
 
-        .menu-item {
-            a {
-                position: relative;
-            }
+    .menu-item {
+      a {
+        position: relative;
+      }
 
-            a:before {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                height: 1px;
-                width: 0;
-                background-color: #000000;
-                transition: 0.2s width;
-            }
+      a:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background-color: #000000;
+        transition: 0.2s width;
+      }
 
-            a:hover:before {
-                width: 100%;
-            }
-        }
-
-        .menu-item.current-menu-item {
-            a:before {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                height: 1px;
-                width: 100%;
-                background-color: #000000;
-            }
-        }
-
-        .sub-menu {
-            @apply lg:hidden;
-        }
+      a:hover:before {
+        width: 100%;
+      }
     }
+
+    .menu-item.current-menu-item {
+      a:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: #000000;
+      }
+    }
+
+    .sub-menu {
+      @apply lg:hidden;
+    }
+  }
 }
 
 .nav-primary-mobile {
-    @apply leading-10;
+  @apply leading-10;
+
+  a {
+    @apply text-20px font-medium;
+    display: block;
+  }
+
+  & > .menu-item-has-children > .sub-menu {
+    @apply ml-6;
 
     a {
-        @apply text-20px font-medium;
-        display: block;
+      @apply font-light;
     }
 
-    & > .menu-item-has-children > .sub-menu {
-        @apply ml-6;
+    & > li {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background-image: url('../images/arrow-right-2.svg');
+        background-repeat: no-repeat;
+      }
+    }
+
+    .sub-menu {
+      @apply hidden;
+
+      &.active {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        margin-top: 167px;
+        background-color: whitesmoke;
+        width: 100%;
+        height: 100%;
+        max-height: 420px;
+        z-index: 60;
+        padding-left: 64px;
+        padding-top: 70px;
+        overflow: scroll;
+        scroll-behavior: smooth;
 
         a {
-            @apply font-light;
+          @apply text-18px font-medium;
         }
-
-        & > li {
-            position: relative;
-
-            &:after {
-                content: '';
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: 20px;
-                height: 20px;
-                background-image: url('../images/arrow-right-2.svg');
-                background-repeat: no-repeat;
-            }
-        }
-
-        .sub-menu {
-            @apply hidden;
-
-            &.active {
-                display: block;
-                position: fixed;
-                left: 0;
-                top: 0;
-                margin-top: 167px;
-                background-color: whitesmoke;
-                width: 100%;
-                height: 100%;
-                max-height: 420px;
-                z-index: 60;
-                padding-left: 64px;
-                padding-top: 70px;
-                overflow: scroll;
-                scroll-behavior: smooth;
-
-                a {
-                    @apply text-18px font-medium;
-                }
-            }
-        }
+      }
     }
+  }
 
-    .submenu-title {
-        @apply text-20px font-bold;
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        text-align: center;
-        margin-top: 1rem;
-    }
+  .submenu-title {
+    @apply text-20px font-bold;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem;
+  }
 
-    .submenu-back {
-        position: absolute;
-        left: 0;
-        top: 0;
-        margin-left: 27px;
-        margin-top: 5px;
-        width: 30px;
-    }
+  .submenu-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 27px;
+    margin-top: 5px;
+    width: 30px;
+  }
 }

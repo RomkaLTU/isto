@@ -19,9 +19,9 @@
               </g>
             </svg>
           </a>
-          @if(shortcode_exists('weglot_switcher'))
-            <?php echo do_shortcode('[weglot_switcher]') ?>
-          @endif
+          <div>
+            @php(do_action('wpml_add_language_selector'))
+          </div>
         </div>
       </div>
       <div class="lg:hidden mt-[7px]">
@@ -62,9 +62,9 @@
             </g>
           </svg>
         </a>
-        @if(shortcode_exists('weglot_switcher'))
-          <?php echo do_shortcode('[weglot_switcher]') ?>
-        @endif
+        <div>
+          @php(do_action('wpml_add_language_selector'))
+        </div>
       </div>
     </div>
     @if (has_nav_menu('primary_navigation'))

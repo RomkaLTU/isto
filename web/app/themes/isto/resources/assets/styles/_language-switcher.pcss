@@ -35,3 +35,53 @@
 .country-selector.weglot-dropdown input:checked ~ .wgcurrent:after {
     transform: rotate(180deg);
 }
+
+.header {
+  .wpml-ls-legacy-dropdown {
+    width: auto;
+    @apply text-sm;
+
+    a {
+      padding: 5px 20px;
+    }
+
+    .wpml-ls-link,
+    .js-wpml-ls-item-toggle {
+      background: transparent;
+      border: 0;
+      display: inline-block;
+
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .wpml-ls-sub-menu {
+      border: 0
+    }
+
+    .wpml-ls-current-language:hover > a,
+    .wpml-ls-legacy-dropdown a:focus,
+    .wpml-ls-legacy-dropdown a:hover {
+      background: transparent;
+    }
+
+    a.wpml-ls-item-toggle:after {
+      background: url('../images/wgarrowdown.png') no-repeat;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      width: 13px;
+      height: 7px;
+      image-rendering: pixelated;
+      transition: all 200ms;
+      border: 0;
+    }
+
+    a.wpml-ls-item-toggle {
+      padding-right: calc(5px + 1.4em);
+    }
+  }
+}
