@@ -16,6 +16,7 @@ class App extends Composer
         return [
             'siteName' => $this->siteName(),
             'themeOptions' => $this->themeOptions(),
+            'currentLang' => apply_filters('wpml_current_language', null),
         ];
     }
 
@@ -24,13 +25,13 @@ class App extends Composer
         return get_bloginfo('name', 'display');
     }
 
-	public function themeOptions(): array
-	{
-		global $wpdb;
+    public function themeOptions(): array
+    {
+        global $wpdb;
 
-		$data = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE 'options_%'");
-		$arr = (new OptionsTransformer($data))->toData();
+        $data = $wpdb->get_results("SELECT * FROM $wpdb->options WHERE option_name LIKE 'options_%'");
+        $arr = (new OptionsTransformer($data))->toData();
 
-		return array_filter($arr);
-	}
+        return array_filter($arr);
+    }
 }

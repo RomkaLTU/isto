@@ -1,7 +1,3 @@
-@php
-  $currentLang = apply_filters( 'wpml_current_language', NULL );
-@endphp
-
 <div class="absolute hidden pt-5"></div>
 <header class="header mb-8 lg:mb-0" x-data="{showMobileMenu: false}">
   <div class="container py-6">

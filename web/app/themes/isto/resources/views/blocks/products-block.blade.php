@@ -44,7 +44,9 @@
                 <div class="swiper-button-prev"></div>
             </div>
 
-            @include('blocks.partials.more-link', ['title' => __('Visi produktai', 'isto'), 'link' => \App\getPermalinkByTemplate('product-categories') ])
+            @if($currentLang === 'lt')
+              @include('blocks.partials.more-link', ['title' => __('Visi produktai', 'isto'), 'link' => \App\getPermalinkByTemplate('product-categories') ])
+            @endif
         </div>
     </div>
 @endif

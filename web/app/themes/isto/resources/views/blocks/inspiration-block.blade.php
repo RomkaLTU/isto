@@ -55,6 +55,8 @@ $groupLink = $group['link'];
             </div>
         </div>
 
-        @include('blocks.partials.more-link', ['title' => __('Daugiau įkvėpimo', 'isto'), 'link' => get_post_type_archive_link('post')])
+        @if($currentLang === 'lt')
+          @include('blocks.partials.more-link', ['title' => __('Daugiau įkvėpimo', 'isto'), 'link' => get_post_type_archive_link('post')])
+        @endif
     </div>
 </div>
