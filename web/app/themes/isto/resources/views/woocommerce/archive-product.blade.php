@@ -57,7 +57,7 @@ the readme will list any important changes.
           </svg>
         </div>
       </div>
-      <div class="h-[calc(100%-185px)] relative inner-scroll bg-gray-1 mt-[90px]">
+      <div class="h-[calc(100%-185px)] inner-scroll relative bg-gray-1 mt-[90px]">
         @if (function_exists('dynamic_sidebar'))
           <?php dynamic_sidebar('sidebar-filters'); ?>
         @endif

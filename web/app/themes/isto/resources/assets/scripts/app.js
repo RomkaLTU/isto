@@ -353,10 +353,12 @@ parentItems.forEach(function(parentItem) {
 // --------------------------
 
 if (document.querySelector('.inner-scroll')) {
-  new PerfectScrollbar('.inner-scroll', {
-    wheelSpeed: 2,
-    wheelPropagation: true,
-    minScrollbarLength: 20
+  document.querySelectorAll('.inner-scroll').forEach(function(el) {
+    new PerfectScrollbar(el, {
+      wheelSpeed: 2,
+      wheelPropagation: true,
+      minScrollbarLength: 20
+    });
   });
 }
 
