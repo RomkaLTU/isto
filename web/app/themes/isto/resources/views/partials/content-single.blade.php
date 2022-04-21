@@ -10,7 +10,7 @@
             </div>
         </div>
         <div>
-	        <?php the_content(); ?>
+            <?php the_content(); ?>
         </div>
 
         @if(!empty($related_post_ids))
@@ -21,8 +21,8 @@
                 <div class="grid lg:grid-cols-3 gap-4 lg:gap-50px">
                     @foreach($related_post_ids as $postId)
                         <?php
-		                $post = get_post($postId);
-		                setup_postdata( $GLOBALS['post'] =& $post );
+                        $post = get_post($postId);
+                        setup_postdata($GLOBALS['post'] =& $post);
                         ?>
                         @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
                     @endforeach
