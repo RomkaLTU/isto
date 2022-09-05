@@ -175,7 +175,8 @@ class WPML_ACF_Field_Settings {
 	public function user_set_sync_preferences( $cft ) {
 
 		foreach ( $cft as $field_name => $field_preferences ) {
-			$field_object = get_field_object( $field_name );
+			$post_id      = $this->get_post_with_custom_field( $field_name );
+			$field_object = get_field_object( $field_name, $post_id );
 
 			if ( $this->is_field_object_valid( $field_object ) ) {
 				if ( $field_object['wpml_cf_preferences'] !== $field_preferences ) {

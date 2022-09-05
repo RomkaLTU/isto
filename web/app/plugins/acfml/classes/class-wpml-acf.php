@@ -126,7 +126,8 @@ class WPML_ACF {
 	}
 
 	private function init_acf_pro() {
-		$this->dependencies_factory->create_pro();
+		$acfPro = $this->dependencies_factory->create_pro();
+		$acfPro->register_hooks();
 	}
 
 	/**
